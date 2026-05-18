@@ -4,10 +4,10 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --salmon:       #C97A8E;
-  --salmon-dark:  #A05870;
-  --salmon-light: #FCEEF4;
-  --salmon-bg:    #FDF5F8;
+  --salmon:       #CD7A6A;
+  --salmon-dark:  #A85E50;
+  --salmon-light: #FAEAE6;
+  --salmon-bg:    #FDF5F3;
   --beige:        #F5EDF2;
   --teal:         #6BBDB5;
   --white:        #ffffff;
