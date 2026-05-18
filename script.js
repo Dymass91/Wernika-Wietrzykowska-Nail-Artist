@@ -37,94 +37,77 @@ let selDate = null;
 let selTime = null;
 
 function initBooking() {
-  const datesEl   = document.getElementById('bookingDates');
-  const slotsEl   = document.getElementById('bookingSlots');
+  const calEl     = document.getElementById('bookingCalendar');
   const selectedEl= document.getElementById('bookingSelected');
   const form      = document.getElementById('bookingForm');
   const errorEl   = document.getElementById('bookingError');
   const confirmEl = document.getElementById('bookingConfirm');
   const confirmMsg= document.getElementById('bookingConfirmMsg');
-  if (!datesEl) return;
+  if (!calEl) return;
 
-  // Generuj najbliższe 12 dni roboczych
-  const dates = [];
+  // 6 najbliższych dni roboczych (bez niedzieli)
   const today = new Date(); today.setHours(0,0,0,0);
-  for (let i = 1; dates.length < 12; i++) {
+  const dates = [];
+  for (let i = 1; dates.length < 6; i++) {
     const d = new Date(today); d.setDate(today.getDate() + i);
     if (d.getDay() !== 0) dates.push(d);
   }
 
-  // Renderuj daty
-  datesEl.innerHTML = dates.map(d => {
-    const key = toKey(d);
-    const free = freeCount(key, d.getDay());
-    return `<button class="booking__date-btn" data-key="${key}" data-dow="${d.getDay()}" type="button">
-      <span class="booking__date-day">${DAY_PL[d.getDay()]}</span>
-      <span class="booking__date-num">${d.getDate()}</span>
-      <span class="booking__date-month">${MONTH_PL[d.getMonth()]}</span>
-      <span class="booking__date-avail">${free} wolnych</span>
-    </button>`;
-  }).join('');
+  const ALL_TIMES = ['9:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00'];
 
-  // Klik w datę
-  datesEl.querySelectorAll('.booking__date-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      datesEl.querySelectorAll('.booking__date-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      selDate = btn.dataset.key;
-      selTime = null;
-      updateSelected();
-      renderSlots(selDate, parseInt(btn.dataset.dow));
+  function renderGrid() {
+    let html = '<div class="bcal__corner"></div>';
+    dates.forEach(d => {
+      html += `<div class="bcal__col-head">
+        <span class="bcal__dow">${DAY_PL[d.getDay()]}</span>
+        <span class="bcal__day">${d.getDate()}</span>
+        <span class="bcal__mon">${MONTH_PL[d.getMonth()]}</span>
+      </div>`;
     });
-  });
+    ALL_TIMES.forEach(slot => {
+      html += `<div class="bcal__time">${slot}</div>`;
+      dates.forEach(d => {
+        const key = toKey(d);
+        if (!slotsForDay(d.getDay()).includes(slot)) {
+          html += `<div class="bcal__cell bcal__cell--off"></div>`;
+        } else if (isBooked(key, slot)) {
+          html += `<div class="bcal__cell bcal__cell--booked"></div>`;
+        } else {
+          html += `<button class="bcal__cell bcal__cell--free" data-key="${key}" data-time="${slot}" type="button"></button>`;
+        }
+      });
+    });
+    calEl.innerHTML = html;
 
-  // Renderuj sloty
-  function renderSlots(key, dow) {
-    const slots = slotsForDay(dow);
-    if (!slots.length) {
-      slotsEl.innerHTML = '<p class="booking__closed">Gabinet nieczynny w niedzielę.</p>';
-      return;
-    }
-    const available = slots.filter(t => !isBooked(key, t));
-    if (!available.length) {
-      slotsEl.innerHTML = '<p class="booking__closed">Brak wolnych terminów w tym dniu.</p>';
-      return;
-    }
-    slotsEl.innerHTML = available.map(t =>
-      `<button class="booking__slot-btn" data-time="${t}" type="button">${t}</button>`
-    ).join('');
-
-    slotsEl.querySelectorAll('.booking__slot-btn').forEach(btn => {
+    calEl.querySelectorAll('.bcal__cell--free').forEach(btn => {
       btn.addEventListener('click', () => {
-        slotsEl.querySelectorAll('.booking__slot-btn').forEach(b => b.classList.remove('active'));
+        calEl.querySelectorAll('.bcal__cell--free').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
+        selDate = btn.dataset.key;
         selTime = btn.dataset.time;
         updateSelected();
       });
     });
   }
 
-  // Pokaż wybrany termin
   function updateSelected() {
     if (selDate && selTime) {
       const d = new Date(selDate + 'T12:00:00');
       selectedEl.textContent = `Wybrany termin: ${DAY_PL[d.getDay()]} ${d.getDate()} ${MONTH_PL[d.getMonth()]} o godz. ${selTime}`;
-      selectedEl.classList.add('visible');
-    } else if (selDate) {
-      selectedEl.textContent = 'Wybierz godzinę →';
       selectedEl.classList.add('visible');
     } else {
       selectedEl.classList.remove('visible');
     }
   }
 
-  // Zapis rezerwacji
+  renderGrid();
+
   form.addEventListener('submit', e => {
     e.preventDefault();
     const name  = document.getElementById('bName').value.trim();
     const phone = document.getElementById('bPhone').value.trim();
     if (!selDate || !selTime) {
-      errorEl.textContent = 'Wybierz dzień i godzinę przed rezerwacją.';
+      errorEl.textContent = 'Kliknij wybrany termin w kalendarzu.';
       return;
     }
     if (!name || !phone) {
@@ -132,24 +115,18 @@ function initBooking() {
       return;
     }
     errorEl.textContent = '';
-
-    // Zapisz rezerwację (zastąp fetch() dla prawdziwego API)
     saveBooking(selDate, selTime);
 
-    // Usuń zablokowany slot z widoku
-    const slotBtn = slotsEl.querySelector(`[data-time="${selTime}"]`);
-    if (slotBtn) slotBtn.remove();
-
-    // Zaktualizuj licznik wolnych miejsc na datach
-    const activeDateBtn = datesEl.querySelector(`[data-key="${selDate}"]`);
-    if (activeDateBtn) {
-      const free = freeCount(selDate, parseInt(activeDateBtn.dataset.dow));
-      activeDateBtn.querySelector('.booking__date-avail').textContent = `${free} wolnych`;
+    // Zamień wolną komórkę na zarezerwowaną
+    const cell = calEl.querySelector(`[data-key="${selDate}"][data-time="${selTime}"]`);
+    if (cell) {
+      const div = document.createElement('div');
+      div.className = 'bcal__cell bcal__cell--booked';
+      cell.replaceWith(div);
     }
 
-    // Potwierdzenie
     const d = new Date(selDate + 'T12:00:00');
-    confirmMsg.textContent = `Wizyta w ${DAY_PL[d.getDay()]} ${d.getDate()} ${MONTH_PL[d.getMonth()]} o ${selTime} — do zobaczenia! Potwierdzenie SMS zostanie wysłane wkrótce.`;
+    confirmMsg.textContent = `Wizyta ${DAY_PL[d.getDay()]} ${d.getDate()} ${MONTH_PL[d.getMonth()]} o ${selTime} — do zobaczenia! Potwierdzenie SMS zostanie wysłane wkrótce.`;
     confirmEl.classList.add('visible');
     form.reset();
     selDate = null; selTime = null;
@@ -157,6 +134,8 @@ function initBooking() {
     setTimeout(() => confirmEl.classList.remove('visible'), 8000);
   });
 }
+
+initBooking();
 
 // Nav scroll shadow
 const nav = document.getElementById('nav');

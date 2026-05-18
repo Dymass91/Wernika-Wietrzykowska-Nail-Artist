@@ -185,29 +185,14 @@
       <h2 class="section__title center">Zarezerwuj Wizytę</h2>
       <p class="booking__lead">Wybierz wolny termin. Po rezerwacji godzina znika z kalendarza.</p>
 
-      <div class="booking__widget">
+      <div class="booking__calendar-wrap">
+        <div id="bookingCalendar" class="booking__calendar"></div>
+      </div>
 
-        <!-- KROK 1: Dni -->
-        <div class="booking__panel">
-          <p class="booking__step-label">1 — Wybierz dzień</p>
-          <div class="booking__dates-wrap">
-            <div class="booking__dates" id="bookingDates"></div>
-          </div>
-        </div>
-
-        <!-- KROK 2: Godziny -->
-        <div class="booking__panel">
-          <p class="booking__step-label">2 — Wybierz godzinę</p>
-          <div class="booking__slots" id="bookingSlots">
-            <p class="booking__hint">Najpierw wybierz dzień powyżej</p>
-          </div>
-        </div>
-
-        <!-- KROK 3: Formularz -->
-        <div class="booking__panel booking__panel--form">
-          <p class="booking__step-label">3 — Twoje dane</p>
-          <div class="booking__selected" id="bookingSelected"></div>
-          <form id="bookingForm" class="booking__form" novalidate>
+      <div class="booking__form-panel">
+        <div class="booking__selected" id="bookingSelected"></div>
+        <form id="bookingForm" class="booking__form" novalidate>
+          <div class="booking__form-row">
             <div class="form-group">
               <label for="bName">Imię i nazwisko *</label>
               <input type="text" id="bName" placeholder="Anna Kowalska" required />
@@ -216,41 +201,40 @@
               <label for="bPhone">Telefon *</label>
               <input type="tel" id="bPhone" placeholder="+48 000 000 000" required />
             </div>
-            <div class="form-group">
-              <label for="bService">Usługa</label>
-              <select id="bService">
-                <option value="">Wybierz usługę (opcjonalnie)</option>
-                <optgroup label="Stylizacja Paznokci">
-                  <option>Manicure hybrydowy — 130 zł</option>
-                  <option>Uzupełnienie żelowe — 140–160 zł</option>
-                  <option>Przedłużenie żelowe — 180 zł</option>
-                  <option>Manicure japoński — 100 zł</option>
-                  <option>Hybryda stóp — 100 zł</option>
-                </optgroup>
-                <optgroup label="Makijaż">
-                  <option>Makijaż okolicznościowy — 230 zł</option>
-                  <option>Makijaż ślubny — 230 zł</option>
-                  <option>Pakiet ślubny — 450 zł</option>
-                </optgroup>
-                <optgroup label="Terapia Skóry">
-                  <option>Mezoterapia mikroigłowa — 450 zł</option>
-                  <option>Mezoterapia mikroigłowa + kwasy — 550 zł</option>
-                  <option>Peelingi chemiczne — 350 zł</option>
-                  <option>Zabieg bankietowy — 250 zł</option>
-                </optgroup>
-              </select>
-            </div>
-            <button type="submit" class="btn btn--primary btn--full">Zarezerwuj wizytę ✦</button>
-            <p class="booking__error" id="bookingError"></p>
-          </form>
-          <div class="booking__confirm" id="bookingConfirm">
-            <div class="booking__confirm-inner">
-              <span class="booking__confirm-icon">✦</span>
-              <p id="bookingConfirmMsg"></p>
-            </div>
+          </div>
+          <div class="form-group">
+            <label for="bService">Usługa (opcjonalnie)</label>
+            <select id="bService">
+              <option value="">Wybierz usługę</option>
+              <optgroup label="Stylizacja Paznokci">
+                <option>Manicure hybrydowy — 130 zł</option>
+                <option>Uzupełnienie żelowe — 140–160 zł</option>
+                <option>Przedłużenie żelowe — 180 zł</option>
+                <option>Manicure japoński — 100 zł</option>
+                <option>Hybryda stóp — 100 zł</option>
+              </optgroup>
+              <optgroup label="Makijaż">
+                <option>Makijaż okolicznościowy — 230 zł</option>
+                <option>Makijaż ślubny — 230 zł</option>
+                <option>Pakiet ślubny — 450 zł</option>
+              </optgroup>
+              <optgroup label="Terapia Skóry">
+                <option>Mezoterapia mikroigłowa — 450 zł</option>
+                <option>Mezoterapia mikroigłowa + kwasy — 550 zł</option>
+                <option>Peelingi chemiczne — 350 zł</option>
+                <option>Zabieg bankietowy — 250 zł</option>
+              </optgroup>
+            </select>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">Zarezerwuj wizytę ✦</button>
+          <p class="booking__error" id="bookingError"></p>
+        </form>
+        <div class="booking__confirm" id="bookingConfirm">
+          <div class="booking__confirm-inner">
+            <span class="booking__confirm-icon">✦</span>
+            <p id="bookingConfirmMsg"></p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -259,7 +243,7 @@
   <section class="contact" id="kontakt">
     <div class="container">
       <p class="section__label center">Kontakt</p>
-      <h2 class="section__title center">Umów się na Wizytę</h2>
+      <h2 class="section__title center">Napisz do mnie</h2>
       <div class="contact__grid">
 
         <div class="contact__info">
@@ -319,30 +303,6 @@
               <label for="phone">Telefon *</label>
               <input type="tel" id="phone" name="phone" placeholder="+48 000 000 000" required />
             </div>
-          </div>
-          <div class="form-group">
-            <label for="service">Usługa</label>
-            <select id="service" name="service">
-              <option value="">Wybierz usługę</option>
-              <optgroup label="Stylizacja Paznokci">
-                <option>Manicure hybrydowy — 130 zł</option>
-                <option>Uzupełnienie żelowe — 140–160 zł</option>
-                <option>Przedłużenie żelowe — 180 zł</option>
-                <option>Manicure japoński — 100 zł</option>
-                <option>Hybryda stóp — 100 zł</option>
-              </optgroup>
-              <optgroup label="Makijaż">
-                <option>Makijaż okolicznościowy — 230 zł</option>
-                <option>Makijaż ślubny — 230 zł</option>
-                <option>Pakiet ślubny — 450 zł</option>
-              </optgroup>
-              <optgroup label="Terapia Skóry">
-                <option>Mezoterapia mikroigłowa — 450 zł</option>
-                <option>Mezoterapia mikroigłowa + kwasy — 550 zł</option>
-                <option>Peelingi chemiczne — 350 zł</option>
-                <option>Zabieg bankietowy — 250 zł</option>
-              </optgroup>
-            </select>
           </div>
           <div class="form-group">
             <label for="message">Wiadomość</label>
