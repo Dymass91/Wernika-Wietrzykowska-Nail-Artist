@@ -1,20 +1,28 @@
 // Nav scroll shadow
 const nav = document.getElementById('nav');
+const topbar = document.querySelector('.topbar');
 window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 20);
+  nav.classList.toggle('scrolled', window.scrollY > 10);
 });
 
-// Mobile burger menu
+// Mobile burger toggle
 const burger = document.getElementById('burger');
-const navLinks = document.querySelector('.nav__links');
+const drawer = document.getElementById('drawer');
 burger.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
+  drawer.classList.toggle('open');
 });
-document.querySelectorAll('.nav__links a').forEach(a => {
-  a.addEventListener('click', () => navLinks.classList.remove('open'));
+drawer.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => drawer.classList.remove('open'));
 });
 
-// Contact form — prosta walidacja + info
+// Close drawer on outside click
+document.addEventListener('click', (e) => {
+  if (!nav.contains(e.target) && !drawer.contains(e.target)) {
+    drawer.classList.remove('open');
+  }
+});
+
+// Contact form
 const form = document.getElementById('contactForm');
 const note = document.getElementById('formNote');
 form.addEventListener('submit', (e) => {

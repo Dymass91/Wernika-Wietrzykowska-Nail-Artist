@@ -3,180 +3,292 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wernika Wietrzykowska — Nail Artist</title>
-  <meta name="description" content="Profesjonalne stylizacje paznokci. Umów się na wizytę już dziś." />
+  <title>Weronika Wietrzykowska — Beauty & Nail Artist</title>
+  <meta name="description" content="Profesjonalne usługi beauty: stylizacja paznokci, makijaż, terapia skóry. 10 lat doświadczenia." />
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- NAWIGACJA -->
+  <!-- ===== TOP BAR ===== -->
+  <div class="topbar">
+    <div class="topbar__inner">
+      <div class="topbar__left">
+        <a href="tel:+48000000000" class="topbar__link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          +48 000 000 000
+        </a>
+        <span class="topbar__divider">|</span>
+        <span>Pon–Pt: 9:00–19:00 &nbsp;|&nbsp; Sob: 9:00–15:00</span>
+      </div>
+      <div class="topbar__right">
+        <a href="#" class="topbar__social" aria-label="Facebook">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="#" class="topbar__social" aria-label="Instagram">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NAV ===== -->
   <nav class="nav" id="nav">
-    <a href="#hero" class="nav__logo">WW Nails</a>
-    <ul class="nav__links">
+    <ul class="nav__group nav__group--left">
       <li><a href="#o-mnie">O mnie</a></li>
       <li><a href="#uslugi">Usługi</a></li>
-      <li><a href="#galeria">Galeria</a></li>
-      <li><a href="#kontakt" class="nav__cta">Umów wizytę</a></li>
+    </ul>
+    <a href="#hero" class="nav__logo">Weronika<br><span>Wietrzykowska</span></a>
+    <ul class="nav__group nav__group--right">
+      <li><a href="#cennik">Cennik</a></li>
+      <li><a href="#kontakt" class="nav__cta">Kontakt</a></li>
     </ul>
     <button class="nav__burger" id="burger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
-  <!-- HERO -->
+  <!-- ===== MOBILE DRAWER ===== -->
+  <div class="nav__drawer" id="drawer">
+    <a href="#o-mnie">O mnie</a>
+    <a href="#uslugi">Usługi</a>
+    <a href="#cennik">Cennik</a>
+    <a href="#kontakt">Kontakt</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
   <section class="hero" id="hero">
-    <div class="hero__content">
-      <p class="hero__subtitle">Nail Artist</p>
-      <h1 class="hero__title">Wernika<br /><em>Wietrzykowska</em></h1>
-      <p class="hero__desc">Paznokcie, które opowiadają Twoją historię. Każda stylizacja tworzona z pasją i precyzją.</p>
+    <div class="hero__text">
+      <p class="hero__pretitle">Beauty &amp; Nail Artist</p>
+      <h1 class="hero__title">Weronika Wietrzykowska<br><em>Tworzy Piękno</em></h1>
+      <p class="hero__desc">Specjalistka z ponad 10-letnim doświadczeniem w branży urody. Nail art, makijaż i terapia skóry — wszystko z pasją i precyzją.</p>
       <a href="#kontakt" class="btn btn--primary">Umów wizytę</a>
     </div>
-    <div class="hero__img-wrap">
-      <div class="hero__img-placeholder">
-        <span>Twoje zdjęcie</span>
-      </div>
+    <div class="hero__visual">
+      <div class="hero__blob" aria-hidden="true"></div>
+      <div class="hero__dots" aria-hidden="true"></div>
+      <!-- Dodaj zdjęcie dłoni/paznokci jako assets/hero.jpg -->
+      <img src="assets/hero.jpg" alt="Profesjonalna stylizacja paznokci" class="hero__img" onerror="this.style.opacity='0'" />
     </div>
   </section>
 
-  <!-- O MNIE -->
+  <!-- ===== ABOUT ===== -->
   <section class="about" id="o-mnie">
     <div class="container">
       <div class="about__grid">
         <div class="about__img-wrap">
-          <div class="about__img-placeholder"><span>Zdjęcie</span></div>
+          <div class="about__dots" aria-hidden="true"></div>
+          <img src="assets/portretowe.jpg" alt="Weronika Wietrzykowska — Beauty Expert" class="about__img" />
         </div>
-        <div class="about__text">
+        <div class="about__content">
           <p class="section__label">O mnie</p>
-          <h2 class="section__title">Tworzę piękno z dbałością o każdy detal</h2>
-          <p>Jestem nail artistką z wieloletnim doświadczeniem. Specjalizuję się w nowoczesnych stylizacjach, nail art oraz pielęgnacji paznokci naturalnych.</p>
-          <p>Korzystam wyłącznie z certyfikowanych produktów najwyższej jakości, dbając zarówno o wygląd, jak i kondycję Twoich paznokci.</p>
-          <div class="about__stats">
-            <div class="stat"><strong>5+</strong><span>lat doświadczenia</span></div>
-            <div class="stat"><strong>500+</strong><span>zadowolonych klientek</span></div>
-            <div class="stat"><strong>100%</strong><span>certyfikowane produkty</span></div>
-          </div>
+          <h2 class="section__title">Dlaczego Klientki<br>Nam Ufają</h2>
+          <p>Jestem Weronika Wietrzykowska — specjalistka beauty z ponad <strong>10-letnim doświadczeniem</strong> w branży urody. Moja pasja do piękna zamieniła się w misję: sprawić, by każda klientka odchodziła piękna, wypoczęta i pełna pewności siebie.</p>
+          <p>Oferuję kompleksowe usługi — od precyzyjnej stylizacji paznokci, przez zaawansowaną terapię skóry, po makijaż ślubny i okolicznościowy. Pracuję wyłącznie na certyfikowanych produktach renomowanych marek.</p>
+          <ul class="about__list">
+            <li>Certyfikowane produkty premium</li>
+            <li>Indywidualne podejście do każdej klientki</li>
+            <li>Kameralna i relaksująca atmosfera</li>
+            <li>Stały rozwój — szkolenia i certyfikaty branżowe</li>
+          </ul>
+          <a href="#kontakt" class="btn btn--outline">Umów się teraz</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- USŁUGI -->
+  <!-- ===== SERVICES ===== -->
   <section class="services" id="uslugi">
-    <div class="container">
-      <p class="section__label center">Usługi</p>
-      <h2 class="section__title center">Co oferuję</h2>
-      <div class="services__grid">
-        <div class="service-card">
-          <div class="service-card__icon">✦</div>
-          <h3>Manicure hybrydowy</h3>
-          <p>Trwały lakier hybrydowy w szerokiej gamie kolorów. Idealny na co dzień.</p>
-          <p class="service-card__price">od 120 zł</p>
+    <div class="services__inner">
+      <div class="services__content">
+        <p class="section__label">Specjalizacje</p>
+        <h2 class="section__title">Kompleksowa<br>Oferta Beauty</h2>
+        <div class="services__grid">
+
+          <div class="service-item">
+            <div class="service-item__icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 8C24 8 16 16 16 26C16 30.4 19.6 34 24 34C28.4 34 32 30.4 32 26C32 16 24 8 24 8Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M24 34V40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="24" cy="26" r="4" fill="currentColor" opacity="0.3"/>
+              </svg>
+            </div>
+            <h3>Stylizacja Paznokci</h3>
+            <p>Manicure hybrydowy, żel, akryl, nail art i pielęgnacja paznokci naturalnych wykonane z precyzją.</p>
+          </div>
+
+          <div class="service-item">
+            <div class="service-item__icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 12C14 12 12 22 24 26C36 22 34 12 34 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <ellipse cx="24" cy="20" rx="10" ry="12" stroke="currentColor" stroke-width="2"/>
+                <path d="M20 20 Q24 24 28 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M24 32V38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Makijaż</h3>
+            <p>Makijaż okolicznościowy i ślubny. Wydobywam Twoje naturalne piękno na każdą wyjątkową okazję.</p>
+          </div>
+
+          <div class="service-item">
+            <div class="service-item__icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="2"/>
+                <path d="M24 10V13M24 35V38M10 24H13M35 24H38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="24" cy="24" r="6" fill="currentColor" opacity="0.25"/>
+              </svg>
+            </div>
+            <h3>Terapia Skóry</h3>
+            <p>Mezoterapia mikroigłowa, peelingi chemiczne i zabiegi odmładzające dla promiennej cery.</p>
+          </div>
+
+          <div class="service-item">
+            <div class="service-item__icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="12" y="22" width="24" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
+                <path d="M17 22V17C17 13.7 20.1 11 24 11C27.9 11 31 13.7 31 17V22" stroke="currentColor" stroke-width="2"/>
+                <path d="M20 31L22 33L28 27" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Zabieg Bankietowy</h3>
+            <p>Wyjątkowe przygotowanie skóry przed wielkim wyjściem. Efekt promienności i blasku.</p>
+          </div>
+
         </div>
-        <div class="service-card">
-          <div class="service-card__icon">✦</div>
-          <h3>Nail Art</h3>
-          <p>Ręcznie malowane wzory, zdobienia, folia, pyłki — nieograniczone możliwości.</p>
-          <p class="service-card__price">od 30 zł / paznokieć</p>
-        </div>
-        <div class="service-card">
-          <div class="service-card__icon">✦</div>
-          <h3>Żel / Akryl</h3>
-          <p>Przedłużanie i modelowanie paznokci. Wzmocnienie i budowa masy.</p>
-          <p class="service-card__price">od 180 zł</p>
-        </div>
-        <div class="service-card">
-          <div class="service-card__icon">✦</div>
-          <h3>Pielęgnacja</h3>
-          <p>Manicure klasyczny, usuwanie skórek, regeneracja płytki paznokcia.</p>
-          <p class="service-card__price">od 80 zł</p>
-        </div>
+      </div>
+      <div class="services__photo">
+        <img src="assets/portretowe.jpg" alt="Ekspertki beauty" />
       </div>
     </div>
   </section>
 
-  <!-- GALERIA -->
-  <section class="gallery" id="galeria">
+  <!-- ===== PRICING ===== -->
+  <section class="pricing" id="cennik">
     <div class="container">
-      <p class="section__label center">Galeria</p>
-      <h2 class="section__title center">Moje prace</h2>
-      <div class="gallery__grid" id="galleryGrid">
-        <div class="gallery__item placeholder"><span>Zdjęcie 1</span></div>
-        <div class="gallery__item placeholder"><span>Zdjęcie 2</span></div>
-        <div class="gallery__item placeholder"><span>Zdjęcie 3</span></div>
-        <div class="gallery__item placeholder"><span>Zdjęcie 4</span></div>
-        <div class="gallery__item placeholder"><span>Zdjęcie 5</span></div>
-        <div class="gallery__item placeholder"><span>Zdjęcie 6</span></div>
+      <p class="section__label center">Cennik</p>
+      <h2 class="section__title center">Transparentne Ceny</h2>
+      <div class="pricing__wrap">
+        <img src="assets/cennik.jpg" alt="Cennik usług Weronika Wietrzykowska" class="pricing__img" />
+      </div>
+      <div class="pricing__note">
+        <p>Masz pytania o pakiety lub indywidualną wycenę?</p>
+        <a href="#kontakt" class="btn btn--primary">Napisz do mnie</a>
       </div>
     </div>
   </section>
 
-  <!-- KONTAKT -->
+  <!-- ===== CONTACT ===== -->
   <section class="contact" id="kontakt">
     <div class="container">
       <p class="section__label center">Kontakt</p>
-      <h2 class="section__title center">Umów się na wizytę</h2>
+      <h2 class="section__title center">Umów się na Wizytę</h2>
       <div class="contact__grid">
+
         <div class="contact__info">
           <div class="contact__item">
-            <strong>Telefon</strong>
-            <a href="tel:+48000000000">+48 000 000 000</a>
+            <div class="contact__item-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+            </div>
+            <div>
+              <strong>Telefon</strong>
+              <a href="tel:+48000000000">+48 000 000 000</a>
+            </div>
           </div>
           <div class="contact__item">
-            <strong>E-mail</strong>
-            <a href="mailto:kontakt@example.com">kontakt@example.com</a>
+            <div class="contact__item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <strong>E-mail</strong>
+              <a href="mailto:kontakt@example.com">kontakt@example.com</a>
+            </div>
           </div>
           <div class="contact__item">
-            <strong>Instagram</strong>
-            <a href="https://instagram.com/" target="_blank" rel="noopener">@wernika.nails</a>
+            <div class="contact__item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+            </div>
+            <div>
+              <strong>Instagram</strong>
+              <a href="https://instagram.com/" target="_blank" rel="noopener">@weronika.beauty</a>
+            </div>
           </div>
           <div class="contact__item">
-            <strong>Lokalizacja</strong>
-            <span>Twoje miasto, Polska</span>
+            <div class="contact__item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <strong>Lokalizacja</strong>
+              <span>Twoje miasto, Polska</span>
+            </div>
           </div>
           <div class="contact__hours">
             <strong>Godziny pracy</strong>
-            <p>Pon–Pt: 9:00–19:00</p>
-            <p>Sob: 9:00–15:00</p>
+            <div class="hours-grid">
+              <span>Poniedziałek – Piątek</span><span>9:00 – 19:00</span>
+              <span>Sobota</span><span>9:00 – 15:00</span>
+              <span>Niedziela</span><span>Zamknięte</span>
+            </div>
           </div>
         </div>
+
         <form class="contact__form" id="contactForm">
-          <div class="form-group">
-            <label for="name">Imię i nazwisko</label>
-            <input type="text" id="name" name="name" placeholder="Anna Kowalska" required />
-          </div>
-          <div class="form-group">
-            <label for="phone">Telefon</label>
-            <input type="tel" id="phone" name="phone" placeholder="+48 000 000 000" required />
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Imię i nazwisko *</label>
+              <input type="text" id="name" name="name" placeholder="Anna Kowalska" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Telefon *</label>
+              <input type="tel" id="phone" name="phone" placeholder="+48 000 000 000" required />
+            </div>
           </div>
           <div class="form-group">
             <label for="service">Usługa</label>
-            <select id="service" name="service" required>
+            <select id="service" name="service">
               <option value="">Wybierz usługę</option>
-              <option>Manicure hybrydowy</option>
-              <option>Nail Art</option>
-              <option>Żel / Akryl</option>
-              <option>Pielęgnacja</option>
+              <optgroup label="Stylizacja Paznokci">
+                <option>Manicure hybrydowy — 130 zł</option>
+                <option>Uzupełnienie żelowe — 140–160 zł</option>
+                <option>Przedłużenie żelowe — 180 zł</option>
+                <option>Manicure japoński — 100 zł</option>
+                <option>Hybryda stóp — 100 zł</option>
+              </optgroup>
+              <optgroup label="Makijaż">
+                <option>Makijaż okolicznościowy — 230 zł</option>
+                <option>Makijaż ślubny — 230 zł</option>
+                <option>Pakiet ślubny — 450 zł</option>
+              </optgroup>
+              <optgroup label="Terapia Skóry">
+                <option>Mezoterapia mikroigłowa — 450 zł</option>
+                <option>Mezoterapia mikroigłowa + kwasy — 550 zł</option>
+                <option>Peelingi chemiczne — 350 zł</option>
+                <option>Zabieg bankietowy — 250 zł</option>
+              </optgroup>
             </select>
           </div>
           <div class="form-group">
-            <label for="message">Wiadomość (opcjonalnie)</label>
+            <label for="message">Wiadomość</label>
             <textarea id="message" name="message" rows="4" placeholder="Napisz coś..."></textarea>
           </div>
           <button type="submit" class="btn btn--primary btn--full">Wyślij zapytanie</button>
           <p class="form__note" id="formNote"></p>
         </form>
+
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
-    <div class="container">
-      <p class="footer__logo">WW Nails</p>
-      <p>© 2026 Wernika Wietrzykowska. Wszelkie prawa zastrzeżone.</p>
+    <div class="footer__inner">
+      <p class="footer__logo">Weronika Wietrzykowska</p>
+      <nav class="footer__nav">
+        <a href="#o-mnie">O mnie</a>
+        <a href="#uslugi">Usługi</a>
+        <a href="#cennik">Cennik</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <p class="footer__copy">© 2026 Weronika Wietrzykowska. Wszelkie prawa zastrzeżone.</p>
     </div>
   </footer>
 
