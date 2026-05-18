@@ -4,11 +4,12 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --salmon:       #e8927c;
-  --salmon-dark:  #c97060;
-  --salmon-light: #fce8e0;
-  --salmon-bg:    #fdf5f2;
-  --beige:        #f7f0eb;
+  --salmon:       #C97A8E;
+  --salmon-dark:  #A05870;
+  --salmon-light: #FCEEF4;
+  --salmon-bg:    #FDF5F8;
+  --beige:        #F5EDF2;
+  --teal:         #6BBDB5;
   --white:        #ffffff;
   --text:         #444444;
   --text-dark:    #2a2a2a;
@@ -333,10 +334,10 @@ strong { font-weight: 700; }
   left: -2%;
   width: 130px;
   height: 130px;
-  background-image: radial-gradient(circle, var(--salmon) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(circle, var(--teal) 1.5px, transparent 1.5px);
   background-size: 14px 14px;
   z-index: 1;
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
 .hero__img {
@@ -374,10 +375,10 @@ strong { font-weight: 700; }
   right: -20px;
   width: 110px;
   height: 110px;
-  background-image: radial-gradient(circle, var(--salmon) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(circle, var(--teal) 1.5px, transparent 1.5px);
   background-size: 13px 13px;
   z-index: 0;
-  opacity: 0.55;
+  opacity: 0.65;
 }
 .about__img {
   position: relative;
