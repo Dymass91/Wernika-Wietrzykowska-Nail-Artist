@@ -673,7 +673,7 @@ strong { font-weight: 700; }
   }
   .hero__img {
     position: absolute;
-    bottom: 0;
+    bottom: -50px;
     left: 50%;
     transform: translateX(-50%);
     height: 100%;
