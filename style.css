@@ -264,9 +264,9 @@ strong { font-weight: 700; }
   align-items: center;
   gap: 4rem;
   padding-inline: clamp(1.5rem, 8vw, 7rem);
-  padding-block: 4rem;
+  padding-block: 4rem 0;
   overflow: hidden;
-  background: var(--white);
+  background: var(--salmon-light);
 }
 
 .hero__pretitle {
@@ -274,7 +274,7 @@ strong { font-weight: 700; }
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--salmon);
+  color: var(--salmon-dark);
   margin-bottom: 1rem;
 }
 .hero__title {
@@ -288,7 +288,7 @@ strong { font-weight: 700; }
 .hero__title em {
   display: block;
   font-style: italic;
-  color: var(--salmon);
+  color: var(--salmon-dark);
 }
 .hero__desc {
   font-size: 1rem;
@@ -299,20 +299,21 @@ strong { font-weight: 700; }
 
 .hero__visual {
   position: relative;
-  height: 520px;
+  height: calc(100svh - var(--total-h));
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
 }
 
-/* Pink blob behind hero image */
+/* White blob behind hero image */
 .hero__blob {
   position: absolute;
-  inset: 0;
-  margin: auto;
-  width: 88%;
-  height: 88%;
-  background: var(--salmon-light);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  height: 90%;
+  background: rgba(255, 255, 255, 0.55);
   border-radius: 62% 47% 82% 35% / 45% 50% 80% 66%;
   z-index: 0;
 }
@@ -333,11 +334,12 @@ strong { font-weight: 700; }
 .hero__img {
   position: relative;
   z-index: 2;
-  max-height: 460px;
-  width: auto;
-  object-fit: cover;
-  border-radius: 4px;
-  filter: drop-shadow(0 12px 30px rgba(0,0,0,0.12));
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  object-fit: contain;
+  object-position: bottom;
+  filter: drop-shadow(0 -8px 24px rgba(0,0,0,0.08));
 }
 
 /* ============================================================
