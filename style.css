@@ -476,6 +476,193 @@ strong { font-weight: 700; }
 }
 
 /* ============================================================
+   BOOKING
+   ============================================================ */
+.booking { background: var(--beige); }
+.booking__lead {
+  text-align: center;
+  color: var(--text-muted);
+  margin-top: -1rem;
+  margin-bottom: 3rem;
+  font-size: 0.95rem;
+}
+
+.booking__widget {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.booking__panel {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  min-height: 320px;
+}
+.booking__panel--form { min-height: auto; }
+
+.booking__step-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--salmon);
+  margin-bottom: 1.25rem;
+}
+
+/* DATE STRIP */
+.booking__dates-wrap {
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--salmon-light) transparent;
+}
+.booking__dates {
+  display: flex;
+  gap: 0.6rem;
+  min-width: max-content;
+}
+.booking__date-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 0.75rem 0.6rem;
+  border: 1.5px solid #e8ddd8;
+  border-radius: var(--radius);
+  background: var(--white);
+  cursor: pointer;
+  transition: all var(--tr);
+  min-width: 58px;
+  font-family: var(--font-sans);
+}
+.booking__date-btn:hover {
+  border-color: var(--salmon);
+  background: var(--salmon-light);
+}
+.booking__date-btn.active {
+  border-color: var(--salmon);
+  background: var(--salmon);
+  color: var(--white);
+}
+.booking__date-day {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+.booking__date-num {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1;
+}
+.booking__date-month {
+  font-size: 0.68rem;
+  opacity: 0.75;
+}
+.booking__date-avail {
+  font-size: 0.62rem;
+  font-weight: 700;
+  margin-top: 3px;
+  color: var(--teal);
+}
+.booking__date-btn.active .booking__date-avail { color: rgba(255,255,255,0.85); }
+
+/* TIME SLOTS */
+.booking__hint {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+.booking__slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.booking__slot-btn {
+  padding: 0.5rem 0.9rem;
+  border: 1.5px solid #e0d5ce;
+  border-radius: 6px;
+  background: var(--white);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: all var(--tr);
+}
+.booking__slot-btn:hover {
+  border-color: var(--salmon);
+  background: var(--salmon-light);
+  color: var(--salmon-dark);
+}
+.booking__slot-btn.active {
+  border-color: var(--salmon);
+  background: var(--salmon);
+  color: var(--white);
+}
+.booking__closed {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* SELECTED INFO */
+.booking__selected {
+  display: none;
+  background: var(--salmon-light);
+  border-left: 3px solid var(--salmon);
+  border-radius: 4px;
+  padding: 0.65rem 1rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--salmon-dark);
+  margin-bottom: 1.25rem;
+}
+.booking__selected.visible { display: block; }
+
+/* BOOKING FORM */
+.booking__form { display: flex; flex-direction: column; gap: 1rem; }
+.booking__error {
+  font-size: 0.82rem;
+  color: #c0392b;
+  text-align: center;
+  min-height: 1.2em;
+}
+
+/* CONFIRM */
+.booking__confirm {
+  display: none;
+  margin-top: 1rem;
+}
+.booking__confirm.visible { display: block; }
+.booking__confirm-inner {
+  background: var(--teal);
+  color: var(--white);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+.booking__confirm-icon {
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Booking responsive */
+@media (max-width: 1024px) {
+  .booking__widget { grid-template-columns: 1fr; }
+  .booking__panel { min-height: auto; }
+}
+
+/* ============================================================
    PRICING
    ============================================================ */
 .pricing {

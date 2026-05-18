@@ -41,6 +41,7 @@
     <a href="#hero" class="nav__logo">Beata<br><span>Wlizło</span></a>
     <ul class="nav__group nav__group--right">
       <li><a href="#cennik">Cennik</a></li>
+      <li><a href="#rezerwacja">Rezerwacja</a></li>
       <li><a href="#kontakt" class="nav__cta">Kontakt</a></li>
     </ul>
     <button class="nav__burger" id="burger" aria-label="Menu">
@@ -53,6 +54,7 @@
     <a href="#o-mnie">O mnie</a>
     <a href="#uslugi">Usługi</a>
     <a href="#cennik">Cennik</a>
+    <a href="#rezerwacja">Rezerwacja</a>
     <a href="#kontakt">Kontakt</a>
   </div>
 
@@ -172,6 +174,83 @@
       <div class="pricing__note">
         <p>Masz pytania o pakiety lub indywidualną wycenę?</p>
         <a href="#kontakt" class="btn btn--primary">Napisz do mnie</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BOOKING ===== -->
+  <section class="booking" id="rezerwacja">
+    <div class="container">
+      <p class="section__label center">Rezerwacja Online</p>
+      <h2 class="section__title center">Zarezerwuj Wizytę</h2>
+      <p class="booking__lead">Wybierz wolny termin. Po rezerwacji godzina znika z kalendarza.</p>
+
+      <div class="booking__widget">
+
+        <!-- KROK 1: Dni -->
+        <div class="booking__panel">
+          <p class="booking__step-label">1 — Wybierz dzień</p>
+          <div class="booking__dates-wrap">
+            <div class="booking__dates" id="bookingDates"></div>
+          </div>
+        </div>
+
+        <!-- KROK 2: Godziny -->
+        <div class="booking__panel">
+          <p class="booking__step-label">2 — Wybierz godzinę</p>
+          <div class="booking__slots" id="bookingSlots">
+            <p class="booking__hint">Najpierw wybierz dzień powyżej</p>
+          </div>
+        </div>
+
+        <!-- KROK 3: Formularz -->
+        <div class="booking__panel booking__panel--form">
+          <p class="booking__step-label">3 — Twoje dane</p>
+          <div class="booking__selected" id="bookingSelected"></div>
+          <form id="bookingForm" class="booking__form" novalidate>
+            <div class="form-group">
+              <label for="bName">Imię i nazwisko *</label>
+              <input type="text" id="bName" placeholder="Anna Kowalska" required />
+            </div>
+            <div class="form-group">
+              <label for="bPhone">Telefon *</label>
+              <input type="tel" id="bPhone" placeholder="+48 000 000 000" required />
+            </div>
+            <div class="form-group">
+              <label for="bService">Usługa</label>
+              <select id="bService">
+                <option value="">Wybierz usługę (opcjonalnie)</option>
+                <optgroup label="Stylizacja Paznokci">
+                  <option>Manicure hybrydowy — 130 zł</option>
+                  <option>Uzupełnienie żelowe — 140–160 zł</option>
+                  <option>Przedłużenie żelowe — 180 zł</option>
+                  <option>Manicure japoński — 100 zł</option>
+                  <option>Hybryda stóp — 100 zł</option>
+                </optgroup>
+                <optgroup label="Makijaż">
+                  <option>Makijaż okolicznościowy — 230 zł</option>
+                  <option>Makijaż ślubny — 230 zł</option>
+                  <option>Pakiet ślubny — 450 zł</option>
+                </optgroup>
+                <optgroup label="Terapia Skóry">
+                  <option>Mezoterapia mikroigłowa — 450 zł</option>
+                  <option>Mezoterapia mikroigłowa + kwasy — 550 zł</option>
+                  <option>Peelingi chemiczne — 350 zł</option>
+                  <option>Zabieg bankietowy — 250 zł</option>
+                </optgroup>
+              </select>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full">Zarezerwuj wizytę ✦</button>
+            <p class="booking__error" id="bookingError"></p>
+          </form>
+          <div class="booking__confirm" id="bookingConfirm">
+            <div class="booking__confirm-inner">
+              <span class="booking__confirm-icon">✦</span>
+              <p id="bookingConfirmMsg"></p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
