@@ -663,6 +663,7 @@ strong { font-weight: 700; }
   .hero__text {
     padding-bottom: 1.5rem;
     justify-content: flex-start;
+    align-items: center;
   }
   .hero__desc { margin-inline: auto; }
   .hero__visual {
