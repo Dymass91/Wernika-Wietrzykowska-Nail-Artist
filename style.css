@@ -161,7 +161,7 @@ strong { font-weight: 700; }
   background: var(--white);
   border-bottom: 1px solid #ece4de;
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   padding-inline: clamp(1rem, 4vw, 3rem);
   transition: box-shadow var(--tr);
@@ -861,7 +861,7 @@ strong { font-weight: 700; }
 @media (max-width: 768px) {
   .topbar__left span:last-child { display: none; }
   .nav__group { display: none; }
-  .nav { grid-template-columns: 1fr auto; }
+  .nav { grid-template-columns: auto 1fr auto; }
   .nav__burger { display: flex; }
   .services__grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
