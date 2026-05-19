@@ -165,6 +165,7 @@ strong { font-weight: 700; }
   align-items: center;
   padding-inline: clamp(1rem, 4vw, 3rem);
   transition: box-shadow var(--tr);
+  overflow: visible;
 }
 .nav.scrolled {
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
@@ -201,10 +202,13 @@ strong { font-weight: 700; }
   justify-content: center;
 }
 .nav__logo-img {
-  height: 52px;
+  height: 110px;
   width: auto;
   display: block;
+  position: relative;
+  z-index: 10;
   transition: opacity var(--tr);
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
 }
 .nav__logo:hover .nav__logo-img { opacity: 0.82; }
 
