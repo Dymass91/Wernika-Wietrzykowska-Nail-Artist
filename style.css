@@ -40,6 +40,9 @@ body {
   color: var(--black);
   background: var(--ivory);
   overflow-x: hidden;
+  /* Never let the browser fake a bold/italic style the loaded font
+     weights don't actually provide. */
+  font-synthesis: none;
 }
 
 a { color: inherit; text-decoration: none; }
@@ -963,9 +966,21 @@ section#hero { padding: 0; scroll-margin-top: 0; }
     z-index: -1;
     background: linear-gradient(0deg, rgba(23,19,16,0.55) 20%, rgba(23,19,16,0) 100%);
   }
-  .hero__mobile-copy .hero__eyebrow { font-size: 0.66rem; letter-spacing: 0.28em; text-transform: uppercase; opacity: 0.9; margin-bottom: 1rem; }
-  .hero__mobile-copy .hero__title { font-family: var(--font-serif); font-size: clamp(2.6rem, 11vw, 3.6rem); line-height: 0.95; letter-spacing: -0.01em; margin-bottom: 1rem; }
-  .hero__mobile-copy .hero__title-em { font-style: italic; color: var(--champagne); }
+  .hero__mobile-copy .hero__eyebrow { font-size: 0.64rem; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.9; margin-bottom: 1.1rem; }
+  /* Same editorial serif, same normal style, same weight and color on
+     both lines — hierarchy comes from scale/line-break only, matching
+     the campaign artworks' own typography, not a mixed-style gimmick. */
+  .hero__mobile-copy .hero__title {
+    font-family: var(--font-serif);
+    font-style: normal;
+    font-weight: 300;
+    font-size: clamp(3.125rem, 14vw, 4.125rem);
+    line-height: 0.9;
+    letter-spacing: -0.025em;
+    color: var(--white);
+    margin-bottom: 1.1rem;
+  }
+  .hero__mobile-copy .hero__title-em { font-style: normal; color: inherit; }
   .hero__mobile-copy .hero__desc { font-size: 0.95rem; opacity: 0.92; margin-bottom: 1.5rem; max-width: 26ch; }
   .hero__mobile-copy .cta-arrow { color: var(--white); border-color: var(--white); }
 
