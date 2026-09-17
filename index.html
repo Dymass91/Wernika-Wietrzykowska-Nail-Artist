@@ -3,192 +3,377 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beata Wlizło — Beauty & Nail Artist</title>
-  <meta name="description" content="Profesjonalne usługi beauty: stylizacja paznokci, makijaż, terapia skóry. 10 lat doświadczenia." />
+  <title>Beata Beauty Atelier — Studio Urody</title>
+  <meta name="description" content="Beata Beauty Atelier — nail art, terapia skóry i makijaż. Studio urody stworzone z myślą o Tobie." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- ===== TOP BAR ===== -->
-  <div class="topbar">
-    <div class="topbar__inner">
-      <div class="topbar__left">
-        <a href="tel:+48000000000" class="topbar__link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-          +48 000 000 000
-        </a>
-        <span class="topbar__divider">|</span>
-        <span>Pon–Pt: 9:00–19:00 &nbsp;|&nbsp; Sob: 9:00–15:00</span>
-      </div>
-      <div class="topbar__right">
-        <a href="#" class="topbar__social" aria-label="Facebook">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-        </a>
-        <a href="#" class="topbar__social" aria-label="Instagram">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-
   <!-- ===== NAV ===== -->
   <nav class="nav" id="nav">
-    <a href="#hero" class="nav__logo"><img src="assets/logo.png" alt="Beata Wlizło" class="nav__logo-img" /></a>
-    <ul class="nav__group nav__group--right">
-      <li><a href="#o-mnie">O mnie</a></li>
-      <li><a href="#uslugi">Usługi</a></li>
-      <li><a href="#cennik">Cennik</a></li>
-      <li><a href="#rezerwacja">Rezerwacja</a></li>
-      <li><a href="#kontakt" class="nav__cta">Kontakt</a></li>
+    <a href="#hero" class="nav__logo">
+      <span class="nav__logo-line1">BEATA</span>
+      <span class="nav__logo-line2">Beauty Atelier</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#pricing">Prices</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-    <button class="nav__burger" id="burger" aria-label="Menu">
-      <span></span><span></span><span></span>
+    <a href="#booking" class="nav__cta">Book a Visit</a>
+    <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span>
     </button>
   </nav>
 
-  <!-- ===== MOBILE DRAWER ===== -->
-  <div class="nav__drawer" id="drawer">
-    <a href="#o-mnie">O mnie</a>
-    <a href="#uslugi">Usługi</a>
-    <a href="#cennik">Cennik</a>
-    <a href="#rezerwacja">Rezerwacja</a>
-    <a href="#kontakt">Kontakt</a>
+  <!-- ===== MOBILE FULLSCREEN MENU ===== -->
+  <div class="menu" id="menu">
+    <ul class="menu__links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#pricing">Prices</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#booking" class="menu__cta">Book a Visit →</a>
+    <div class="menu__meta">
+      <span>Instagram</span>
+      <span>+48 000 000 000</span>
+    </div>
   </div>
 
   <!-- ===== HERO ===== -->
   <section class="hero" id="hero">
-    <div class="hero__text">
-      <p class="hero__pretitle">Beauty &amp; Nail Artist</p>
-      <h1 class="hero__title">Beata<br>Wlizło<br><em>Tworzy Piękno</em></h1>
-      <p class="hero__desc">Specjalistka z ponad 10-letnim doświadczeniem w branży urody. Nail art, makijaż i terapia skóry — wszystko z pasją i precyzją.</p>
-      <a href="#kontakt" class="btn btn--primary">Umów wizytę</a>
+    <div class="hero__copy">
+      <p class="hero__eyebrow">Beata Beauty Atelier</p>
+      <h1 class="hero__title" data-reveal>
+        <span>Beauty is</span>
+        <span class="hero__title-em">Personal.</span>
+      </h1>
+      <p class="hero__desc">Studio urody stworzone z myślą o Tobie. Nail art, terapia skóry i makijaż — precyzja, indywidualne podejście i ponad 10 lat doświadczenia.</p>
+      <a href="#booking" class="cta-arrow">Umów wizytę <span class="cta-arrow__glyph">↗</span></a>
     </div>
-    <div class="hero__visual">
-      <div class="hero__blob" aria-hidden="true"></div>
-      <div class="hero__dots" aria-hidden="true"></div>
-      <img src="assets/dlonheaded.png" alt="Profesjonalna stylizacja paznokci" class="hero__img" />
+
+    <div class="hero__media">
+      <div class="hero__frame">
+        <img src="assets/clean/hero-hand-clean.webp" alt="Nail art — precyzyjna stylizacja paznokci" class="hero__img" />
+      </div>
+      <div class="hero__detail" aria-hidden="true">
+        <img src="assets/clean/hero-hand-clean.webp" alt="" class="hero__detail-img" />
+      </div>
+      <span class="hero__tag">01 — Nails</span>
+    </div>
+
+    <div class="hero__scroll" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="hero__scroll-line"></div>
     </div>
   </section>
 
-  <!-- ===== ABOUT ===== -->
-  <section class="about" id="o-mnie">
-    <div class="container">
-      <div class="about__grid">
-        <div class="about__img-wrap">
-          <div class="about__dots" aria-hidden="true"></div>
-          <img src="assets/omnie.jpg" alt="Beata Wlizło — Beauty Expert" class="about__img" />
-        </div>
-        <div class="about__content">
-          <p class="section__label">O mnie</p>
-          <h2 class="section__title">Dlaczego Klientki<br>Mi Ufają</h2>
-          <p>Jestem Beata Wlizło — specjalistka beauty z ponad <strong>10-letnim doświadczeniem</strong> w branży urody. Moja pasja do piękna zamieniła się w misję: sprawić, by każda klientka odchodziła piękna, wypoczęta i pełna pewności siebie.</p>
-          <p>Oferuję kompleksowe usługi — od precyzyjnej stylizacji paznokci, przez zaawansowaną terapię skóry, po makijaż ślubny i okolicznościowy. Pracuję wyłącznie na certyfikowanych produktach renomowanych marek.</p>
-          <ul class="about__list">
-            <li>Certyfikowane produkty premium</li>
-            <li>Indywidualne podejście do każdej klientki</li>
-            <li>Kameralna i relaksująca atmosfera</li>
-            <li>Stały rozwój — szkolenia i certyfikaty branżowe</li>
-          </ul>
-          <a href="#kontakt" class="btn btn--outline">Umów się teraz</a>
-        </div>
+  <!-- ===== RESULTS / PORTFOLIO ===== -->
+  <section class="results" id="results">
+    <div class="results__head">
+      <p class="section__label">Our Work</p>
+      <h2 class="results__title">Results speak<br>for themselves.</h2>
+      <div class="results__filters" role="tablist" aria-label="Filtruj galerię">
+        <button class="filter active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="filter" data-filter="nails" role="tab" aria-selected="false">Nails</button>
+        <button class="filter" data-filter="skin" role="tab" aria-selected="false">Skin</button>
+        <button class="filter" data-filter="makeup" role="tab" aria-selected="false">Make-up</button>
       </div>
+    </div>
+
+    <div class="results__grid">
+      <figure class="result result--a" data-cat="nails">
+        <div class="result__frame">
+          <img src="assets/clean/nails-precision-manicure-clean.webp" alt="Manicure hybrydowy — precyzyjny nail art" loading="lazy" />
+        </div>
+        <figcaption><span class="result__num">01</span><span class="result__name">Nails — Precision Manicure</span></figcaption>
+      </figure>
+
+      <figure class="result result--b" data-cat="makeup">
+        <div class="result__frame">
+          <img src="assets/clean/makeup-application-clean.webp" alt="Nakładanie makijażu — editorial close-up" loading="lazy" style="object-position: 60% 50%;" />
+        </div>
+        <figcaption><span class="result__num">02</span><span class="result__name">Make-up — Editorial Application</span></figcaption>
+      </figure>
+
+      <figure class="result result--c" data-cat="nails">
+        <div class="result__frame">
+          <img src="assets/clean/nails-colour-detail-clean.webp" alt="Stylizacja paznokci — kolor i detal" loading="lazy" />
+        </div>
+        <figcaption><span class="result__num">03</span><span class="result__name">Nails — Colour &amp; Detail</span></figcaption>
+      </figure>
+
+      <!-- DEMO CONTENT — placeholder: real skin-therapy close-up photography needed here (warm light, neutral background, editorial crop) -->
+      <figure class="result result--d" data-cat="skin">
+        <div class="result__frame result__frame--placeholder">
+          <span class="placeholder__text">Photography placeholder</span>
+          <span class="placeholder__hint">Skin therapy — close-up, warm light, neutral background</span>
+        </div>
+        <figcaption><span class="result__num">04</span><span class="result__name">Skin — Radiant Glow</span></figcaption>
+      </figure>
+
+      <figure class="result result--e" data-cat="nails">
+        <div class="result__frame">
+          <img src="assets/clean/nails-signature-detail-clean.webp" alt="Wykończony manicure przy świecach i kwiatach" loading="lazy" />
+        </div>
+        <figcaption><span class="result__num">05</span><span class="result__name">Nails — Signature Detail</span></figcaption>
+      </figure>
+
+      <figure class="result result--f" data-cat="skin">
+        <div class="result__frame">
+          <img src="assets/clean/spa-ritual-atmosphere-clean.webp" alt="Atmosfera studia — chwila relaksu" loading="lazy" />
+        </div>
+        <figcaption><span class="result__num">06</span><span class="result__name">Skin — Golden Hour Glow</span></figcaption>
+      </figure>
     </div>
   </section>
 
   <!-- ===== SERVICES ===== -->
-  <section class="services" id="uslugi">
-    <div class="services__inner">
-      <div class="services__content">
-        <p class="section__label">Specjalizacje</p>
-        <h2 class="section__title">Kompleksowa<br>Oferta Beauty</h2>
-        <div class="services__grid">
+  <section class="services" id="services">
+    <p class="section__label">Specializations</p>
+    <h2 class="services__title">Choose your<br>experience.</h2>
 
-          <div class="service-item">
-            <div class="service-item__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M24 8C24 8 16 16 16 26C16 30.4 19.6 34 24 34C28.4 34 32 30.4 32 26C32 16 24 8 24 8Z" stroke="currentColor" stroke-width="2"/>
-                <path d="M24 34V40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <circle cx="24" cy="26" r="4" fill="currentColor" opacity="0.3"/>
-              </svg>
-            </div>
-            <h3>Stylizacja Paznokci</h3>
-            <p>Manicure hybrydowy, żel, akryl, nail art i pielęgnacja paznokci naturalnych wykonane z precyzją.</p>
-          </div>
-
-          <div class="service-item">
-            <div class="service-item__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M14 12C14 12 12 22 24 26C36 22 34 12 34 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <ellipse cx="24" cy="20" rx="10" ry="12" stroke="currentColor" stroke-width="2"/>
-                <path d="M20 20 Q24 24 28 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                <path d="M24 32V38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <h3>Makijaż</h3>
-            <p>Makijaż okolicznościowy i ślubny. Wydobywam Twoje naturalne piękno na każdą wyjątkową okazję.</p>
-          </div>
-
-          <div class="service-item">
-            <div class="service-item__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="2"/>
-                <path d="M24 10V13M24 35V38M10 24H13M35 24H38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <circle cx="24" cy="24" r="6" fill="currentColor" opacity="0.25"/>
-              </svg>
-            </div>
-            <h3>Terapia Skóry</h3>
-            <p>Mezoterapia mikroigłowa, peelingi chemiczne i zabiegi odmładzające dla promiennej cery.</p>
-          </div>
-
-          <div class="service-item">
-            <div class="service-item__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="12" y="22" width="24" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
-                <path d="M17 22V17C17 13.7 20.1 11 24 11C27.9 11 31 13.7 31 17V22" stroke="currentColor" stroke-width="2"/>
-                <path d="M20 31L22 33L28 27" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <h3>Zabieg Bankietowy</h3>
-            <p>Wyjątkowe przygotowanie skóry przed wielkim wyjściem. Efekt promienności i blasku.</p>
-          </div>
-
+    <div class="service-row" data-cat="nails">
+      <div class="service-row__media"><img src="assets/clean/nails-studio-application-clean.webp" alt="Nails — stylizacja paznokci w studio" loading="lazy" /></div>
+      <div class="service-row__body">
+        <span class="service-row__num">01</span>
+        <h3 class="service-row__title">Nails</h3>
+        <p class="service-row__tag">Perfect details.</p>
+        <p class="service-row__desc">Manicure hybrydowy, żel, akryl i nail art wykonane z chirurgiczną precyzją — trwałość i estetyka w jednym.</p>
+        <div class="service-row__foot">
+          <span class="service-row__price">od 100 zł</span>
+          <a href="#pricing" class="link-arrow">Zobacz zabiegi <span>→</span></a>
         </div>
       </div>
-      <div class="services__photo">
-        <img src="assets/dlon2.jpg" alt="Kompleksowa oferta beauty" />
+    </div>
+
+    <div class="service-row service-row--rev" data-cat="skin">
+      <!-- DEMO CONTENT — placeholder: real skin-therapy photography needed here (treatment room, warm neutral tones) -->
+      <div class="service-row__media service-row__media--placeholder">
+        <span class="placeholder__text">Photography placeholder</span>
+        <span class="placeholder__hint">Skin therapy — treatment room, warm neutral tones</span>
+      </div>
+      <div class="service-row__body">
+        <span class="service-row__num">02</span>
+        <h3 class="service-row__title">Skin</h3>
+        <p class="service-row__tag">Healthy glow.</p>
+        <p class="service-row__desc">Mezoterapia mikroigłowa, peelingi chemiczne i zabiegi odmładzające — dla promiennej, zdrowej cery.</p>
+        <div class="service-row__foot">
+          <span class="service-row__price">od 250 zł</span>
+          <a href="#pricing" class="link-arrow">Zobacz zabiegi <span>→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-row" data-cat="makeup">
+      <div class="service-row__media"><img src="assets/clean/makeup-application-clean.webp" alt="Make-up — makijaż okolicznościowy" loading="lazy" /></div>
+      <div class="service-row__body">
+        <span class="service-row__num">03</span>
+        <h3 class="service-row__title">Make-up</h3>
+        <p class="service-row__tag">Your beauty, elevated.</p>
+        <p class="service-row__desc">Makijaż okolicznościowy i ślubny — wydobywam naturalne piękno na każdą wyjątkową okazję.</p>
+        <div class="service-row__foot">
+          <span class="service-row__price">od 230 zł</span>
+          <a href="#pricing" class="link-arrow">Zobacz zabiegi <span>→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-row service-row--rev" data-cat="rituals">
+      <div class="service-row__media"><img src="assets/clean/rituals-hands-flowers-clean.webp" alt="Rituals — zabiegi bankietowe" loading="lazy" /></div>
+      <div class="service-row__body">
+        <span class="service-row__num">04</span>
+        <h3 class="service-row__title">Rituals</h3>
+        <p class="service-row__tag">Time just for you.</p>
+        <p class="service-row__desc">Zabiegi bankietowe i kompleksowe pakiety przed wielkim wyjściem — chwila wyłącznie dla Ciebie.</p>
+        <div class="service-row__foot">
+          <span class="service-row__price">od 250 zł</span>
+          <a href="#pricing" class="link-arrow">Zobacz zabiegi <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT / STORY ===== -->
+  <section class="about" id="about">
+    <div class="about__portrait">
+      <img src="assets/clean/owner-portrait-clean.webp" alt="Beata — założycielka Beata Beauty Atelier" loading="lazy" />
+    </div>
+    <div class="about__content">
+      <p class="section__label">Our Story</p>
+      <h2 class="about__title">10+ years<br>of beauty.</h2>
+      <p class="about__lead">Piękno to nie efekt — to proces zbudowany z uwagi, cierpliwości i precyzji. Od ponad dekady towarzyszę kobietom w chwilach, w których chcą poczuć się najlepszą wersją siebie.</p>
+      <p class="about__text">Nie pracuję szybko. Pracuję dokładnie. Każda wizyta to rozmowa, diagnoza i indywidualnie dobrane rozwiązanie — nie gotowy schemat. Dlatego klientki wracają nie po zabieg, a po efekt, który noszą ze sobą na co dzień.</p>
+      <div class="about__stats">
+        <div class="stat">
+          <span class="stat__num">10+</span>
+          <span class="stat__label">Years experience</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num">2500+</span>
+          <span class="stat__label">Beauty moments</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num">4.9</span>
+          <span class="stat__label">Client rating</span>
+        </div>
+      </div>
+      <p class="about__demo-note">Dane demonstracyjne — przykładowe wartości dla wersji demo.</p>
+    </div>
+  </section>
+
+  <!-- ===== SOCIAL PROOF ===== -->
+  <section class="proof">
+    <p class="section__label">Loved by</p>
+    <h2 class="proof__title">Our clients.</h2>
+    <div class="proof__rating">★★★★★ <span>4.9</span></div>
+
+    <div class="proof__main" id="proofCarousel">
+      <span class="proof__mark" aria-hidden="true">&ldquo;</span>
+      <div class="proof__slides">
+        <div class="proof__slide active">
+          <p class="proof__quote">Beata ma niesamowite oko do detalu. Pierwszy raz czuję, że zabieg jest dopasowany dokładnie do mnie — nie do schematu z cennika.</p>
+          <p class="proof__author">Klientka, opinia demonstracyjna</p>
+        </div>
+        <div class="proof__slide">
+          <p class="proof__quote">Atmosfera studia jest kameralna i bardzo spokojna. Efekt utrzymał się dokładnie tyle, ile obiecano.</p>
+          <p class="proof__author">Klientka, opinia demonstracyjna</p>
+        </div>
+        <div class="proof__slide">
+          <p class="proof__quote">Rezerwacja online zajęła minutę, a wizyta była dokładnie na czas. Widać profesjonalizm w każdym detalu.</p>
+          <p class="proof__author">Klientka, opinia demonstracyjna</p>
+        </div>
+      </div>
+      <div class="proof__nav">
+        <button class="proof__arrow" id="proofPrev" aria-label="Poprzednia opinia">←</button>
+        <span class="proof__count"><span id="proofCurrent">01</span> / 03</span>
+        <button class="proof__arrow" id="proofNext" aria-label="Następna opinia">→</button>
       </div>
     </div>
   </section>
 
   <!-- ===== PRICING ===== -->
-  <section class="pricing" id="cennik">
-    <div class="container">
-      <p class="section__label center">Cennik</p>
-      <h2 class="section__title center">Transparentne Ceny</h2>
-      <div class="pricing__wrap">
-        <img src="assets/cennik.jpg" alt="Cennik usług Beata Wlizło" class="pricing__img" />
+  <section class="pricing" id="pricing">
+    <p class="section__label">Price List</p>
+    <h2 class="pricing__title">Transparent pricing.</h2>
+
+    <div class="accordion">
+      <div class="acc-item active">
+        <button class="acc-item__head" aria-expanded="true">
+          <span class="acc-item__name">Nails</span>
+          <span class="acc-item__num">01</span>
+        </button>
+        <div class="acc-item__body">
+          <div class="acc-item__body-inner">
+          <div class="price-row"><span>Manicure hybrydowy</span><span class="price-dots"></span><span>130 zł</span></div>
+          <div class="price-row"><span>Uzupełnienie żelowe</span><span class="price-dots"></span><span>140–160 zł</span></div>
+          <div class="price-row"><span>Przedłużenie żelowe</span><span class="price-dots"></span><span>180 zł</span></div>
+          <div class="price-row"><span>Manicure japoński</span><span class="price-dots"></span><span>100 zł</span></div>
+          <div class="price-row"><span>Hybryda stóp</span><span class="price-dots"></span><span>100 zł</span></div>
+          <div class="price-row"><span>French</span><span class="price-dots"></span><span>+30 zł</span></div>
+          </div>
+        </div>
       </div>
-      <div class="pricing__note">
-        <p>Masz pytania o pakiety lub indywidualną wycenę?</p>
-        <a href="#kontakt" class="btn btn--primary">Napisz do mnie</a>
+
+      <div class="acc-item">
+        <button class="acc-item__head" aria-expanded="false">
+          <span class="acc-item__name">Skin</span>
+          <span class="acc-item__num">02</span>
+        </button>
+        <div class="acc-item__body">
+          <div class="acc-item__body-inner">
+          <div class="price-row"><span>Mezoterapia mikroigłowa</span><span class="price-dots"></span><span>450 zł</span></div>
+          <div class="price-row"><span>Mezoterapia + kwasy</span><span class="price-dots"></span><span>550 zł</span></div>
+          <div class="price-row"><span>Peelingi chemiczne</span><span class="price-dots"></span><span>350 zł</span></div>
+          <div class="price-row"><span>Zabieg bankietowy</span><span class="price-dots"></span><span>250 zł</span></div>
+          </div>
+        </div>
       </div>
+
+      <div class="acc-item">
+        <button class="acc-item__head" aria-expanded="false">
+          <span class="acc-item__name">Make-up</span>
+          <span class="acc-item__num">03</span>
+        </button>
+        <div class="acc-item__body">
+          <div class="acc-item__body-inner">
+          <div class="price-row"><span>Makijaż okolicznościowy</span><span class="price-dots"></span><span>230 zł</span></div>
+          <div class="price-row"><span>Makijaż ślubny</span><span class="price-dots"></span><span>230 zł</span></div>
+          <div class="price-row"><span>Pakiet ślubny</span><span class="price-dots"></span><span>450 zł</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-item__head" aria-expanded="false">
+          <span class="acc-item__name">Rituals</span>
+          <span class="acc-item__num">04</span>
+        </button>
+        <div class="acc-item__body">
+          <div class="acc-item__body-inner">
+          <div class="price-row"><span>Zabieg bankietowy + stylizacja</span><span class="price-dots"></span><span>od 400 zł</span></div>
+          <div class="price-row"><span>Pakiet Panny Młodej</span><span class="price-dots"></span><span>od 650 zł</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing__note">
+      <p>Masz pytania o pakiety lub indywidualną wycenę?</p>
+      <a href="#contact" class="link-arrow">Napisz do mnie <span>→</span></a>
     </div>
   </section>
 
   <!-- ===== BOOKING ===== -->
-  <section class="booking" id="rezerwacja">
-    <div class="container">
-      <p class="section__label center">Rezerwacja Online</p>
-      <h2 class="section__title center">Zarezerwuj Wizytę</h2>
-      <p class="booking__lead">Wybierz wolny termin. Po rezerwacji godzina znika z kalendarza.</p>
+  <section class="booking" id="booking">
+    <p class="section__label center">Reservation</p>
+    <h2 class="booking__title">Ready for<br>your moment?</h2>
+    <p class="booking__lead">Wybierz wolny termin. Po rezerwacji godzina znika z kalendarza.</p>
 
-      <div class="booking__calendar-wrap">
-        <div id="bookingCalendar" class="booking__calendar"></div>
+    <div class="booking__panel">
+      <div class="booking__col">
+        <span class="booking__step-label">01 — Usługa</span>
+        <div class="form-group">
+          <label for="bService">Wybierz zabieg (opcjonalnie)</label>
+          <select id="bService">
+            <option value="">Wybierz usługę</option>
+            <optgroup label="Nails">
+              <option>Manicure hybrydowy — 130 zł</option>
+              <option>Uzupełnienie żelowe — 140–160 zł</option>
+              <option>Przedłużenie żelowe — 180 zł</option>
+              <option>Manicure japoński — 100 zł</option>
+              <option>Hybryda stóp — 100 zł</option>
+            </optgroup>
+            <optgroup label="Make-up">
+              <option>Makijaż okolicznościowy — 230 zł</option>
+              <option>Makijaż ślubny — 230 zł</option>
+              <option>Pakiet ślubny — 450 zł</option>
+            </optgroup>
+            <optgroup label="Skin">
+              <option>Mezoterapia mikroigłowa — 450 zł</option>
+              <option>Mezoterapia mikroigłowa + kwasy — 550 zł</option>
+              <option>Peelingi chemiczne — 350 zł</option>
+              <option>Zabieg bankietowy — 250 zł</option>
+            </optgroup>
+          </select>
+        </div>
       </div>
 
-      <div class="booking__form-panel">
+      <div class="booking__col">
+        <span class="booking__step-label">02 — 03 · Termin</span>
+        <div id="bookingCalendar" class="booking__calendar"></div>
         <div class="booking__selected" id="bookingSelected"></div>
+      </div>
+
+      <div class="booking__col">
+        <span class="booking__step-label">04 — Dane kontaktowe</span>
         <form id="bookingForm" class="booking__form" novalidate>
           <div class="booking__form-row">
             <div class="form-group">
@@ -200,31 +385,7 @@
               <input type="tel" id="bPhone" placeholder="+48 000 000 000" required />
             </div>
           </div>
-          <div class="form-group">
-            <label for="bService">Usługa (opcjonalnie)</label>
-            <select id="bService">
-              <option value="">Wybierz usługę</option>
-              <optgroup label="Stylizacja Paznokci">
-                <option>Manicure hybrydowy — 130 zł</option>
-                <option>Uzupełnienie żelowe — 140–160 zł</option>
-                <option>Przedłużenie żelowe — 180 zł</option>
-                <option>Manicure japoński — 100 zł</option>
-                <option>Hybryda stóp — 100 zł</option>
-              </optgroup>
-              <optgroup label="Makijaż">
-                <option>Makijaż okolicznościowy — 230 zł</option>
-                <option>Makijaż ślubny — 230 zł</option>
-                <option>Pakiet ślubny — 450 zł</option>
-              </optgroup>
-              <optgroup label="Terapia Skóry">
-                <option>Mezoterapia mikroigłowa — 450 zł</option>
-                <option>Mezoterapia mikroigłowa + kwasy — 550 zł</option>
-                <option>Peelingi chemiczne — 350 zł</option>
-                <option>Zabieg bankietowy — 250 zł</option>
-              </optgroup>
-            </select>
-          </div>
-          <button type="submit" class="btn btn--primary btn--full">Zarezerwuj wizytę ✦</button>
+          <button type="submit" class="btn btn--dark btn--full">Potwierdź wizytę <span class="btn__arrow">→</span></button>
           <p class="booking__error" id="bookingError"></p>
         </form>
         <div class="booking__confirm" id="bookingConfirm">
@@ -238,95 +399,73 @@
   </section>
 
   <!-- ===== CONTACT ===== -->
-  <section class="contact" id="kontakt">
-    <div class="container">
-      <p class="section__label center">Kontakt</p>
-      <h2 class="section__title center">Napisz do mnie</h2>
-      <div class="contact__grid">
+  <section class="contact" id="contact">
+    <div class="contact__grid">
+      <div class="contact__info">
+        <p class="section__label">Contact</p>
+        <h2 class="contact__title">Write to me.</h2>
 
-        <div class="contact__info">
-          <div class="contact__item">
-            <div class="contact__item-icon">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-            </div>
-            <div>
-              <strong>Telefon</strong>
-              <a href="tel:+48000000000">+48 000 000 000</a>
-            </div>
-          </div>
-          <div class="contact__item">
-            <div class="contact__item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div>
-              <strong>E-mail</strong>
-              <a href="mailto:kontakt@example.com">kontakt@example.com</a>
-            </div>
-          </div>
-          <div class="contact__item">
-            <div class="contact__item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
-            </div>
-            <div>
-              <strong>Instagram</strong>
-              <a href="https://instagram.com/" target="_blank" rel="noopener">@weronika.beauty</a>
-            </div>
-          </div>
-          <div class="contact__item">
-            <div class="contact__item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div>
-              <strong>Lokalizacja</strong>
-              <span>Twoje miasto, Polska</span>
-            </div>
-          </div>
-          <div class="contact__hours">
-            <strong>Godziny pracy</strong>
-            <div class="hours-grid">
-              <span>Poniedziałek – Piątek</span><span>9:00 – 19:00</span>
-              <span>Sobota</span><span>9:00 – 15:00</span>
-              <span>Niedziela</span><span>Zamknięte</span>
-            </div>
+        <div class="contact__item">
+          <strong>Phone</strong>
+          <a href="tel:+48000000000">+48 000 000 000</a>
+        </div>
+        <div class="contact__item">
+          <strong>E-mail</strong>
+          <a href="mailto:hello@beata-atelier.pl">hello@beata-atelier.pl</a>
+        </div>
+        <div class="contact__item">
+          <strong>Instagram</strong>
+          <a href="https://instagram.com/" target="_blank" rel="noopener">@beata.beautyatelier</a>
+        </div>
+        <div class="contact__item">
+          <strong>Studio</strong>
+          <span>ul. Kwiatowa 12, Warszawa</span>
+        </div>
+        <div class="contact__hours">
+          <strong>Hours</strong>
+          <div class="hours-grid">
+            <span>Poniedziałek – Piątek</span><span>9:00 – 19:00</span>
+            <span>Sobota</span><span>9:00 – 15:00</span>
+            <span>Niedziela</span><span>Zamknięte</span>
           </div>
         </div>
+      </div>
 
-        <form class="contact__form" id="contactForm">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Imię i nazwisko *</label>
-              <input type="text" id="name" name="name" placeholder="Anna Kowalska" required />
-            </div>
-            <div class="form-group">
-              <label for="phone">Telefon *</label>
-              <input type="tel" id="phone" name="phone" placeholder="+48 000 000 000" required />
-            </div>
+      <form class="contact__form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Imię i nazwisko *</label>
+            <input type="text" id="name" name="name" placeholder="Anna Kowalska" required />
           </div>
           <div class="form-group">
-            <label for="message">Wiadomość</label>
-            <textarea id="message" name="message" rows="4" placeholder="Napisz coś..."></textarea>
+            <label for="phone">Telefon *</label>
+            <input type="tel" id="phone" name="phone" placeholder="+48 000 000 000" required />
           </div>
-          <button type="submit" class="btn btn--primary btn--full">Wyślij zapytanie</button>
-          <p class="form__note" id="formNote"></p>
-        </form>
-
-      </div>
+        </div>
+        <div class="form-group">
+          <label for="message">Wiadomość</label>
+          <textarea id="message" name="message" rows="4" placeholder="Napisz coś..."></textarea>
+        </div>
+        <button type="submit" class="btn btn--dark btn--full">Wyślij zapytanie</button>
+        <p class="form__note" id="formNote"></p>
+      </form>
     </div>
   </section>
 
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
-    <div class="footer__inner">
-      <p class="footer__logo">Beata Wlizło</p>
-      <nav class="footer__nav">
-        <a href="#o-mnie">O mnie</a>
-        <a href="#uslugi">Usługi</a>
-        <a href="#cennik">Cennik</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-      <p class="footer__copy">© 2026 Beata Wlizło. Wszelkie prawa zastrzeżone.</p>
+    <a href="#booking" class="footer__headline">Beauty,<br>your way.</a>
+    <div class="footer__grid">
+      <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+      <a href="#contact">Kontakt</a>
+      <span>ul. Kwiatowa 12, Warszawa</span>
+      <span>Pon–Pt 9–19 · Sob 9–15</span>
+      <a href="#booking">Booking</a>
     </div>
+    <p class="footer__copy">© 2026 Beata Beauty Atelier. Projekt demonstracyjny — wszystkie dane są przykładowe.</p>
   </footer>
+
+  <a href="#booking" class="sticky-cta">Umów wizytę</a>
 
   <script src="script.js"></script>
 </body>
