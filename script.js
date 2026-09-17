@@ -174,23 +174,6 @@ menu.querySelectorAll('a').forEach(a => {
 });
 
 // ============================================================
-// RESULTS / PORTFOLIO — filters
-// ============================================================
-const filters = document.querySelectorAll('.filter');
-const results = document.querySelectorAll('.result');
-filters.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filters.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
-    btn.classList.add('active');
-    btn.setAttribute('aria-selected', 'true');
-    const cat = btn.dataset.filter;
-    results.forEach(r => {
-      r.classList.toggle('hidden', cat !== 'all' && r.dataset.cat !== cat);
-    });
-  });
-});
-
-// ============================================================
 // PRICING — accordion
 // ============================================================
 function setAccBody(item, open) {

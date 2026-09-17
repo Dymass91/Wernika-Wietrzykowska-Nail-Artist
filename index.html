@@ -59,14 +59,18 @@
       <a href="#booking" class="cta-arrow">Umów wizytę <span class="cta-arrow__glyph">↗</span></a>
     </div>
 
+    <!-- FINAL HERO CAMPAIGN IMAGE REQUIRED — no editorial beauty campaign
+         portrait (adult female model, luminous skin, 40–50% of frame,
+         no treatment/hands/manicure) currently exists in assets/clean.
+         Using spa-ritual-atmosphere-clean.webp as a temporary fallback
+         because it is the only clean asset showing a model rather than
+         hands or an in-progress treatment. Replace as soon as a proper
+         campaign shot is available. -->
     <div class="hero__media">
       <div class="hero__frame">
-        <img src="assets/clean/hero-hand-clean.webp" alt="Nail art — precyzyjna stylizacja paznokci" class="hero__img" />
+        <img src="assets/clean/spa-ritual-atmosphere-clean.webp" alt="Beata Beauty Atelier — kampania beauty" class="hero__img" />
       </div>
-      <div class="hero__detail" aria-hidden="true">
-        <img src="assets/clean/hero-hand-clean.webp" alt="" class="hero__detail-img" />
-      </div>
-      <span class="hero__tag">01 — Nails</span>
+      <span class="hero__tag">Beauty Atelier</span>
     </div>
 
     <div class="hero__scroll" aria-hidden="true">
@@ -76,62 +80,42 @@
   </section>
 
   <!-- ===== RESULTS / PORTFOLIO ===== -->
+  <!-- Quality over quantity: only three on-palette, campaign-consistent nail
+       results are shown, as a small large+stacked editorial diptych/triptych.
+       nails-colour-detail-clean.webp (bright pink/turquoise bracelet, off
+       the ivory/nude/champagne campaign palette) was reviewed and left out.
+       SKIN RESULT IMAGE REQUIRED / MAKE-UP RESULT IMAGE REQUIRED — no clean
+       finished-result asset exists yet for either category, so neither is
+       shown here (the makeup asset we have is a process shot, used in Services). -->
   <section class="results" id="results">
     <div class="results__head">
       <p class="section__label">Our Work</p>
       <h2 class="results__title">Results speak<br>for themselves.</h2>
-      <div class="results__filters" role="tablist" aria-label="Filtruj galerię">
-        <button class="filter active" data-filter="all" role="tab" aria-selected="true">All</button>
-        <button class="filter" data-filter="nails" role="tab" aria-selected="false">Nails</button>
-        <button class="filter" data-filter="skin" role="tab" aria-selected="false">Skin</button>
-        <button class="filter" data-filter="makeup" role="tab" aria-selected="false">Make-up</button>
-      </div>
     </div>
 
     <div class="results__grid">
-      <figure class="result result--a" data-cat="nails">
-        <div class="result__frame">
-          <img src="assets/clean/nails-precision-manicure-clean.webp" alt="Manicure hybrydowy — precyzyjny nail art" loading="lazy" />
-        </div>
-        <figcaption><span class="result__num">01</span><span class="result__name">Nails — Precision Manicure</span></figcaption>
-      </figure>
-
-      <figure class="result result--b" data-cat="makeup">
-        <div class="result__frame">
-          <img src="assets/clean/makeup-application-clean.webp" alt="Nakładanie makijażu — editorial close-up" loading="lazy" style="object-position: 60% 50%;" />
-        </div>
-        <figcaption><span class="result__num">02</span><span class="result__name">Make-up — Editorial Application</span></figcaption>
-      </figure>
-
-      <figure class="result result--c" data-cat="nails">
-        <div class="result__frame">
-          <img src="assets/clean/nails-colour-detail-clean.webp" alt="Stylizacja paznokci — kolor i detal" loading="lazy" />
-        </div>
-        <figcaption><span class="result__num">03</span><span class="result__name">Nails — Colour &amp; Detail</span></figcaption>
-      </figure>
-
-      <!-- DEMO CONTENT — placeholder: real skin-therapy close-up photography needed here (warm light, neutral background, editorial crop) -->
-      <figure class="result result--d" data-cat="skin">
-        <div class="result__frame result__frame--placeholder">
-          <span class="placeholder__text">Photography placeholder</span>
-          <span class="placeholder__hint">Skin therapy — close-up, warm light, neutral background</span>
-        </div>
-        <figcaption><span class="result__num">04</span><span class="result__name">Skin — Radiant Glow</span></figcaption>
-      </figure>
-
-      <figure class="result result--e" data-cat="nails">
+      <figure class="result result--large">
         <div class="result__frame">
           <img src="assets/clean/nails-signature-detail-clean.webp" alt="Wykończony manicure przy świecach i kwiatach" loading="lazy" />
         </div>
-        <figcaption><span class="result__num">05</span><span class="result__name">Nails — Signature Detail</span></figcaption>
+        <figcaption><span class="result__num">01</span><span class="result__name">Nails — Signature Detail</span></figcaption>
       </figure>
 
-      <figure class="result result--f" data-cat="skin">
-        <div class="result__frame">
-          <img src="assets/clean/spa-ritual-atmosphere-clean.webp" alt="Atmosfera studia — chwila relaksu" loading="lazy" />
-        </div>
-        <figcaption><span class="result__num">06</span><span class="result__name">Skin — Golden Hour Glow</span></figcaption>
-      </figure>
+      <div class="results__stack">
+        <figure class="result">
+          <div class="result__frame">
+            <img src="assets/clean/hero-hand-clean.webp" alt="Delikatny manicure — nude finish" loading="lazy" style="object-position: 50% 30%;" />
+          </div>
+          <figcaption><span class="result__num">02</span><span class="result__name">Nails — Refined Finish</span></figcaption>
+        </figure>
+
+        <figure class="result">
+          <div class="result__frame">
+            <img src="assets/clean/nails-precision-manicure-clean.webp" alt="Precyzyjny detal manicure" loading="lazy" style="object-position: 50% 20%;" />
+          </div>
+          <figcaption><span class="result__num">03</span><span class="result__name">Nails — Precision Detail</span></figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -154,12 +138,12 @@
       </div>
     </div>
 
-    <div class="service-row service-row--rev" data-cat="skin">
-      <!-- DEMO CONTENT — placeholder: real skin-therapy photography needed here (treatment room, warm neutral tones) -->
-      <div class="service-row__media service-row__media--placeholder">
-        <span class="placeholder__text">Photography placeholder</span>
-        <span class="placeholder__hint">Skin therapy — treatment room, warm neutral tones</span>
-      </div>
+    <!-- SKIN SERVICE IMAGE REQUIRED — no clean skin-close-up asset exists yet
+         (candidates were either a spa/process shot already used elsewhere or
+         contained on-image branding). Until proper photography exists, this
+         row is intentionally a quiet, text-only editorial moment rather than
+         a placeholder box or a mismatched photo. -->
+    <div class="service-row service-row--text-only">
       <div class="service-row__body">
         <span class="service-row__num">02</span>
         <h3 class="service-row__title">Skin</h3>
