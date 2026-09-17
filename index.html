@@ -48,41 +48,38 @@
   </div>
 
   <!-- ===== HERO ===== -->
-  <!-- TODO: replace with hero-campaign.webp — no dedicated editorial beauty
-       campaign portrait exists yet in assets/clean (see asset inventory in
-       project notes). spa-ritual-atmosphere-clean.webp is the closest clean
-       "model, not process" shot available and is used as a temporary
-       fallback; it also appears — with very different crops — in
-       Services/Rituals and two Results tiles, since it is effectively the
-       only usable beauty portrait in the library besides the make-up
-       process shot. -->
+  <!-- Source of truth: assets/original/ChatGPT Image 17 wrz 2026, 17_17_11.png
+       ("BEAUTY IS PERSONAL" campaign artwork), converted to
+       assets/campaign/hero-campaign.webp. It already contains the logo,
+       headline, nav labels, CTA box and micro-copy baked into the
+       photograph, so NO HTML text is duplicated over it on desktop — only
+       real, invisible, accessible link hotspots sit over its own printed
+       nav/CTA regions so they're genuinely clickable. Desktop shows the
+       artwork at its native, uncropped aspect ratio (no destructive
+       object-fit crop). Mobile switches to a tighter face-crop of the same
+       photo (baked text no longer legible/visible at that crop) with real
+       HTML headline + CTA re-created for that viewport only — see
+       .hero__mobile-copy, hidden on desktop to avoid duplicating the
+       artwork's own typography there. -->
   <section class="hero" id="hero">
-    <div class="hero__bg">
-      <img src="assets/clean/spa-ritual-atmosphere-clean.webp" alt="Beata Beauty Atelier — kampania beauty" class="hero__img" style="object-position: 42% 22%;" />
-      <div class="hero__scrim" aria-hidden="true"></div>
+    <div class="hero__artwork">
+      <img src="assets/campaign/hero-campaign.webp" alt="Beata Beauty Atelier — Beauty is Personal. Studio urody stworzone z myślą o Tobie." class="hero__img" />
+
+      <!-- Invisible hotspots over the artwork's own printed nav/CTA —
+           functional navigation without a second, visibly duplicated bar. -->
+      <a href="#hero" class="hero__hotspot hero__hotspot--logo" aria-label="Beata Beauty Atelier — strona główna"></a>
+      <a href="#services" class="hero__hotspot hero__hotspot--nav" aria-label="Zobacz usługi: Nails, Skin, Make-up"></a>
+      <a href="#booking" class="hero__hotspot hero__hotspot--cta" aria-label="Umów wizytę"></a>
     </div>
 
-    <div class="hero__meta-top" aria-hidden="true">
-      Beauty<br>is more than<br>a look
-      <span class="hairline"></span>
-    </div>
-
-    <div class="hero__content">
+    <!-- Mobile-only re-creation of the headline/CTA — the artwork is
+         cropped tighter to the face on small screens, so its baked
+         typography is no longer visible there. -->
+    <div class="hero__mobile-copy">
       <p class="hero__eyebrow">Beata Beauty Atelier</p>
-      <h1 class="hero__title" data-reveal>
-        <span>Beauty is</span>
-        <span class="hero__title-em">Personal.</span>
-      </h1>
+      <h1 class="hero__title">Beauty is<br><span class="hero__title-em">Personal.</span></h1>
       <p class="hero__desc">Studio urody stworzone z myślą o Tobie.</p>
-      <a href="#booking" class="cta-arrow cta-arrow--light">Umów wizytę <span class="cta-arrow__glyph">→</span></a>
-    </div>
-
-    <div class="hero__foot" aria-hidden="true">
-      <span>01</span><span class="hero__foot-sep"></span><span>02</span><span>03</span>
-    </div>
-
-    <div class="hero__corner-meta" aria-hidden="true">
-      Piękno<br>w Twoim<br>stylu
+      <a href="#booking" class="cta-arrow">Umów wizytę <span class="cta-arrow__glyph">→</span></a>
     </div>
   </section>
 
@@ -95,28 +92,20 @@
   </section>
 
   <!-- ===== RESULTS / PORTFOLIO ===== -->
-  <!-- 4 curated results spanning the full beauty offer, not just nails.
-       Asset reality check (none of these are faked as something they're
-       not — see comments per item below):
-       - No genuine finished make-up PORTRAIT exists separate from the
-         process shot, so Result 02 reuses makeup-application-clean.webp
-         with a tight face-only crop, distinct from its Services process
-         crop. TODO: replace with a real finished make-up portrait.
-       - skin-result.webp (a real finished skin close-up) does not exist.
-         Result 03 temporarily reuses spa-ritual-atmosphere-clean.webp
-         with a full, correctly-framed face+shoulder crop (object-position
-         tuned to this specific photo's composition — face sits left-of-
-         centre in the source, not centred). SKIN RESULT IMAGE REQUIRED —
-         replace with skin-result.webp once it exists.
-       - Result 04 needed to NOT be another nail photo and NOT repeat
-         Result 02's process shot, so it reuses the same spa-ritual-
-         atmosphere-clean.webp source a second time, but as a tight macro
-         detail crop (hand-to-cheek gesture) with extra zoom — a visibly
-         different image than Result 03, not a duplicate. This is a
-         last-resort reuse given the asset library has exactly one other
-         usable "model" photo (already spent on Result 02).
-       nails-colour-detail-clean.webp and rituals-hands-flowers-clean.webp
-       remain excluded — off-palette vs. the ivory/nude/champagne look. -->
+  <!-- 4 curated results (assets/clean is the supporting library here —
+       finished outcomes, not campaign artworks):
+       - 01 Signature Nails: nails-signature-detail-clean.webp — the
+         strongest finished-manicure photo, unchanged.
+       - 02 Editorial Make-up: makeup-application-clean.webp, cropped tight
+         on the face. No separate finished-only make-up portrait exists in
+         assets/clean; spa-ritual-atmosphere is reserved for 03/04 below so
+         this crop isn't a repeat of anything else on the page.
+       - 03 Radiant Skin: spa-ritual-atmosphere-clean.webp, full face crop
+         (no tools, genuinely luminous skin) — now free for this role since
+         Hero no longer needs it (Hero uses the real campaign artwork).
+       - 04 Beauty Detail: spa-ritual-atmosphere-clean.webp again, but a
+         tight macro crop (hand-to-cheek) distinct from 03's fuller shot —
+         not another nails photo. -->
   <section class="results" id="results">
     <div class="results__head">
       <p class="section__label">Our Work</p>
@@ -154,18 +143,15 @@
     </div>
   </section>
 
-  <!-- ===== BRAND MOMENT — memorability pause, not a service card ===== -->
-  <!-- Reuses makeup-application-clean.webp with its widest, least-zoomed
-       crop (full scene: mirror, flowers, candles) so it reads as an
-       atmosphere/aspiration shot rather than a repeat of Result 02's tight
-       face crop or Services/Make-up's process crop. -->
+  <!-- ===== BRAND MOMENT ===== -->
+  <!-- Source of truth: assets/original/ChatGPT Image 17 wrz 2026, 17_17_57.png
+       ("NATURAL BEAUTY. REAL YOU." artwork), converted to
+       assets/campaign/brand-moment-campaign.webp. Headline, service list
+       and micro-copy are already printed into the photograph, so no HTML
+       text is duplicated over it — the artwork is left to work on its own,
+       shown uncropped on desktop and as a tighter portrait crop on mobile. -->
   <section class="brand-moment">
-    <div class="brand-moment__media">
-      <img src="assets/clean/makeup-application-clean.webp" alt="Naturalne piękno w świetle studia" loading="lazy" style="object-position: 55% 25%;" />
-    </div>
-    <div class="brand-moment__meta-left" aria-hidden="true">Nails<br>Skin<br>Make-up<br>You</div>
-    <h2 class="brand-moment__statement">Natural<br>beauty.<br>Real you.</h2>
-    <div class="brand-moment__meta-right" aria-hidden="true">Piękno<br>w Twoim<br>rytmie.</div>
+    <img src="assets/campaign/brand-moment-campaign.webp" alt="Natural beauty. Real you. — Beata Beauty Atelier, Nails Skin Make-up You" loading="lazy" class="brand-moment__img" />
   </section>
 
   <!-- ===== SERVICES ===== -->
@@ -187,23 +173,15 @@
       </div>
     </div>
 
-    <!-- SKIN SERVICE IMAGE REQUIRED — no clean skin-close-up asset exists yet
-         (candidates were either a spa/process shot already used elsewhere or
-         contained on-image branding). Until proper photography exists, this
-         row is intentionally a quiet, text-only editorial moment rather than
-         a placeholder box or a mismatched photo. -->
-    <div class="service-row service-row--text-only">
-      <div class="service-row__body">
-        <span class="service-row__num">02</span>
-        <h3 class="service-row__title">Skin</h3>
-        <p class="service-row__tag">Healthy glow.</p>
-        <p class="service-row__desc">Mezoterapia mikroigłowa, peelingi chemiczne i zabiegi odmładzające — dla promiennej, zdrowej cery.</p>
-        <div class="service-row__foot">
-          <span class="service-row__price">od 250 zł</span>
-          <a href="#pricing" class="link-arrow">Zobacz zabiegi <span>→</span></a>
-        </div>
-      </div>
-    </div>
+    <!-- Skin feature — the "PIĘKNO W DOBRYCH RĘKACH" campaign artwork
+         (assets/original/ChatGPT Image 17 wrz 2026, 17_18_25.png →
+         assets/campaign/skin-feature-campaign.webp). It already says
+         everything Skin needs to say (headline + "CIAŁO UMYSŁ PIĘKNO TY."
+         micro-copy baked in), so this is the artwork alone, full width —
+         no HTML service-row text duplicated on top of it. -->
+    <figure class="skin-feature">
+      <img src="assets/campaign/skin-feature-campaign.webp" alt="Piękno w dobrych rękach — profesjonalna pielęgnacja twarzy, Beata Beauty Atelier" loading="lazy" />
+    </figure>
 
     <div class="service-row" data-cat="makeup">
       <div class="service-row__media"><img src="assets/clean/makeup-application-clean.webp" alt="Make-up — proces aplikacji makijażu" loading="lazy" style="object-position: 30% 55%;" /></div>
