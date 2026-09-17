@@ -388,19 +388,14 @@ section { padding-block: clamp(3rem, 5.5vw, 6.5rem); padding-inline: var(--pad-c
 }
 .result { transition: opacity 0.35s ease, transform 0.35s ease; }
 
-.results__stack {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(1rem, 2vw, 1.75rem);
-}
-
 .result__frame {
   overflow: hidden;
   aspect-ratio: 4/5;
   background: var(--ivory);
 }
 .result--large .result__frame { aspect-ratio: 3/4; }
-.results__stack .result__frame { aspect-ratio: 16/11; }
+.result--medium .result__frame { aspect-ratio: 4/5; }
+.result--medium { align-self: end; max-width: 78%; margin-inline: auto; }
 
 .result__frame img {
   width: 100%;
@@ -888,9 +883,8 @@ section { padding-block: clamp(3rem, 5.5vw, 6.5rem); padding-inline: var(--pad-c
   .hero__scroll { display: none; }
 
   .results__grid { grid-template-columns: 1fr; }
-  .results__stack { flex-direction: row; }
   .result--large .result__frame { aspect-ratio: 4/5; }
-  .results__stack .result__frame { aspect-ratio: 4/5; }
+  .result--medium { max-width: 100%; }
 
   .service-row, .service-row--rev {
     grid-template-columns: 1fr;

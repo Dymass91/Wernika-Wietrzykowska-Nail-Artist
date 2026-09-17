@@ -59,16 +59,17 @@
       <a href="#booking" class="cta-arrow">Umów wizytę <span class="cta-arrow__glyph">↗</span></a>
     </div>
 
-    <!-- FINAL HERO CAMPAIGN IMAGE REQUIRED — no editorial beauty campaign
-         portrait (adult female model, luminous skin, 40–50% of frame,
-         no treatment/hands/manicure) currently exists in assets/clean.
-         Using spa-ritual-atmosphere-clean.webp as a temporary fallback
-         because it is the only clean asset showing a model rather than
-         hands or an in-progress treatment. Replace as soon as a proper
-         campaign shot is available. -->
+    <!-- TODO: replace with hero-campaign.webp — no dedicated editorial
+         beauty campaign portrait exists yet in assets/clean. Of the two
+         "model" shots available, makeup-application-clean.webp always
+         shows a visible brush + technician's hand (reads as a treatment
+         being performed, which Hero must avoid), so spa-ritual-atmosphere-
+         clean.webp is the better temporary fallback: no tools, a calm
+         portrait. It also serves Services/Rituals below with a distinct,
+         much tighter crop so the two don't read as the same picture. -->
     <div class="hero__media">
       <div class="hero__frame">
-        <img src="assets/clean/spa-ritual-atmosphere-clean.webp" alt="Beata Beauty Atelier — kampania beauty" class="hero__img" />
+        <img src="assets/clean/spa-ritual-atmosphere-clean.webp" alt="Beata Beauty Atelier — kampania beauty" class="hero__img" style="object-position: 38% 18%;" />
       </div>
       <span class="hero__tag">Beauty Atelier</span>
     </div>
@@ -80,13 +81,21 @@
   </section>
 
   <!-- ===== RESULTS / PORTFOLIO ===== -->
-  <!-- Quality over quantity: only three on-palette, campaign-consistent nail
-       results are shown, as a small large+stacked editorial diptych/triptych.
-       nails-colour-detail-clean.webp (bright pink/turquoise bracelet, off
-       the ivory/nude/champagne campaign palette) was reviewed and left out.
-       SKIN RESULT IMAGE REQUIRED / MAKE-UP RESULT IMAGE REQUIRED — no clean
-       finished-result asset exists yet for either category, so neither is
-       shown here (the makeup asset we have is a process shot, used in Services). -->
+  <!-- Curated to the 2 results we can back with genuinely on-palette,
+       correctly-categorised final-result photography (quality over
+       quantity — no category is filled with the wrong kind of photo just
+       to hit a target count). nails-colour-detail-clean.webp (pink/
+       turquoise) and nails-precision-manicure-clean.webp (harsher tones)
+       were reviewed and left off — off-palette vs. the ivory/nude/
+       champagne campaign look, and would only add more Nails volume.
+       makeup-application-clean.webp and spa-ritual-atmosphere-clean.webp
+       are process/atmosphere shots doing double duty as Hero fallback and
+       Services/Rituals respectively, so neither is reused here as a
+       "finished result" — that would be misrepresenting a process photo.
+       TODO: add Result 02 — Editorial Make-up once a genuine finished
+       make-up portrait exists; Result 03 — Radiant Skin once
+       skin-result.webp (finished skin close-up) exists. Re-introduce a
+       3-4 item asymmetric grid at that point. -->
   <section class="results" id="results">
     <div class="results__head">
       <p class="section__label">Our Work</p>
@@ -98,24 +107,15 @@
         <div class="result__frame">
           <img src="assets/clean/nails-signature-detail-clean.webp" alt="Wykończony manicure przy świecach i kwiatach" loading="lazy" />
         </div>
-        <figcaption><span class="result__num">01</span><span class="result__name">Nails — Signature Detail</span></figcaption>
+        <figcaption><span class="result__num">01</span><span class="result__name">Signature Nails</span></figcaption>
       </figure>
 
-      <div class="results__stack">
-        <figure class="result">
-          <div class="result__frame">
-            <img src="assets/clean/hero-hand-clean.webp" alt="Delikatny manicure — nude finish" loading="lazy" style="object-position: 50% 30%;" />
-          </div>
-          <figcaption><span class="result__num">02</span><span class="result__name">Nails — Refined Finish</span></figcaption>
-        </figure>
-
-        <figure class="result">
-          <div class="result__frame">
-            <img src="assets/clean/nails-precision-manicure-clean.webp" alt="Precyzyjny detal manicure" loading="lazy" style="object-position: 50% 20%;" />
-          </div>
-          <figcaption><span class="result__num">03</span><span class="result__name">Nails — Precision Detail</span></figcaption>
-        </figure>
-      </div>
+      <figure class="result result--medium">
+        <div class="result__frame">
+          <img src="assets/clean/hero-hand-clean.webp" alt="Delikatny manicure — nude finish" loading="lazy" style="object-position: 50% 22%;" />
+        </div>
+        <figcaption><span class="result__num">02</span><span class="result__name">Refined Finish</span></figcaption>
+      </figure>
     </div>
   </section>
 
@@ -157,7 +157,7 @@
     </div>
 
     <div class="service-row" data-cat="makeup">
-      <div class="service-row__media"><img src="assets/clean/makeup-application-clean.webp" alt="Make-up — makijaż okolicznościowy" loading="lazy" /></div>
+      <div class="service-row__media"><img src="assets/clean/makeup-application-clean.webp" alt="Make-up — proces aplikacji makijażu" loading="lazy" style="object-position: 30% 55%;" /></div>
       <div class="service-row__body">
         <span class="service-row__num">03</span>
         <h3 class="service-row__title">Make-up</h3>
@@ -171,7 +171,7 @@
     </div>
 
     <div class="service-row service-row--rev" data-cat="rituals">
-      <div class="service-row__media"><img src="assets/clean/rituals-hands-flowers-clean.webp" alt="Rituals — zabiegi bankietowe" loading="lazy" /></div>
+      <div class="service-row__media" style="aspect-ratio: 3/5;"><img src="assets/clean/spa-ritual-atmosphere-clean.webp" alt="Rituals — kwiaty i świece, atmosfera studia" loading="lazy" style="object-position: 0% 100%;" /></div>
       <div class="service-row__body">
         <span class="service-row__num">04</span>
         <h3 class="service-row__title">Rituals</h3>
