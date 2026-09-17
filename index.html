@@ -81,28 +81,31 @@
   </section>
 
   <!-- ===== RESULTS / PORTFOLIO ===== -->
-  <!-- Curated to the 2 results we can back with genuinely on-palette,
-       correctly-categorised final-result photography (quality over
-       quantity — no category is filled with the wrong kind of photo just
-       to hit a target count). nails-colour-detail-clean.webp (pink/
-       turquoise) and nails-precision-manicure-clean.webp (harsher tones)
-       were reviewed and left off — off-palette vs. the ivory/nude/
-       champagne campaign look, and would only add more Nails volume.
-       makeup-application-clean.webp and spa-ritual-atmosphere-clean.webp
-       are process/atmosphere shots doing double duty as Hero fallback and
-       Services/Rituals respectively, so neither is reused here as a
-       "finished result" — that would be misrepresenting a process photo.
-       TODO: add Result 02 — Editorial Make-up once a genuine finished
-       make-up portrait exists; Result 03 — Radiant Skin once
-       skin-result.webp (finished skin close-up) exists. Re-introduce a
-       3-4 item asymmetric grid at that point. -->
+  <!-- 4 curated results spanning the full beauty offer, not just nails.
+       Asset reality check (none of these are faked as something they're
+       not — see comments per item below):
+       - No genuine finished make-up PORTRAIT exists separate from the
+         process shot, so Result 02 reuses makeup-application-clean.webp
+         with a tight face-only crop, distinct from its Services process
+         crop. TODO: replace with a real finished make-up portrait.
+       - skin-result.webp (a real finished skin close-up) does not exist.
+         Result 03 temporarily reuses spa-ritual-atmosphere-clean.webp,
+         cropped tight on shoulder/décolletage skin texture — a different
+         crop again from its Hero and Services/Rituals uses. SKIN RESULT
+         IMAGE REQUIRED — replace with skin-result.webp once it exists.
+       - Result 04 reuses hero-hand-clean.webp (nails) because no other
+         clean, on-palette "beauty detail" asset exists that isn't already
+         assigned elsewhere. This is a deliberate last resort per explicit
+         instruction, not a random fill.
+       nails-colour-detail-clean.webp and rituals-hands-flowers-clean.webp
+       remain excluded — off-palette vs. the ivory/nude/champagne look. -->
   <section class="results" id="results">
     <div class="results__head">
       <p class="section__label">Our Work</p>
       <h2 class="results__title">Results speak<br>for themselves.</h2>
     </div>
 
-    <div class="results__grid">
+    <div class="results__grid results__grid--four">
       <figure class="result result--large">
         <div class="result__frame">
           <img src="assets/clean/nails-signature-detail-clean.webp" alt="Wykończony manicure przy świecach i kwiatach" loading="lazy" />
@@ -110,11 +113,25 @@
         <figcaption><span class="result__num">01</span><span class="result__name">Signature Nails</span></figcaption>
       </figure>
 
-      <figure class="result result--medium">
-        <div class="result__frame">
-          <img src="assets/clean/hero-hand-clean.webp" alt="Delikatny manicure — nude finish" loading="lazy" style="object-position: 50% 22%;" />
+      <figure class="result result--wide">
+        <div class="result__frame" style="aspect-ratio: 2/1;">
+          <img src="assets/clean/makeup-application-clean.webp" alt="Makijaż okolicznościowy — efekt końcowy" loading="lazy" style="object-position: 75% 5%;" />
         </div>
-        <figcaption><span class="result__num">02</span><span class="result__name">Refined Finish</span></figcaption>
+        <figcaption><span class="result__num">02</span><span class="result__name">Editorial Make-up</span></figcaption>
+      </figure>
+
+      <figure class="result result--small">
+        <div class="result__frame">
+          <img src="assets/clean/spa-ritual-atmosphere-clean.webp" alt="Promienna, zdrowa skóra" loading="lazy" style="object-position: 90% 55%;" />
+        </div>
+        <figcaption><span class="result__num">03</span><span class="result__name">Radiant Skin</span></figcaption>
+      </figure>
+
+      <figure class="result result--small">
+        <div class="result__frame">
+          <img src="assets/clean/hero-hand-clean.webp" alt="Delikatny detal beauty — nude finish" loading="lazy" style="object-position: 50% 22%;" />
+        </div>
+        <figcaption><span class="result__num">04</span><span class="result__name">Beauty Detail</span></figcaption>
       </figure>
     </div>
   </section>
