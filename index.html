@@ -89,14 +89,18 @@
          with a tight face-only crop, distinct from its Services process
          crop. TODO: replace with a real finished make-up portrait.
        - skin-result.webp (a real finished skin close-up) does not exist.
-         Result 03 temporarily reuses spa-ritual-atmosphere-clean.webp,
-         cropped tight on shoulder/décolletage skin texture — a different
-         crop again from its Hero and Services/Rituals uses. SKIN RESULT
-         IMAGE REQUIRED — replace with skin-result.webp once it exists.
-       - Result 04 reuses hero-hand-clean.webp (nails) because no other
-         clean, on-palette "beauty detail" asset exists that isn't already
-         assigned elsewhere. This is a deliberate last resort per explicit
-         instruction, not a random fill.
+         Result 03 temporarily reuses spa-ritual-atmosphere-clean.webp
+         with a full, correctly-framed face+shoulder crop (object-position
+         tuned to this specific photo's composition — face sits left-of-
+         centre in the source, not centred). SKIN RESULT IMAGE REQUIRED —
+         replace with skin-result.webp once it exists.
+       - Result 04 needed to NOT be another nail photo and NOT repeat
+         Result 02's process shot, so it reuses the same spa-ritual-
+         atmosphere-clean.webp source a second time, but as a tight macro
+         detail crop (hand-to-cheek gesture) with extra zoom — a visibly
+         different image than Result 03, not a duplicate. This is a
+         last-resort reuse given the asset library has exactly one other
+         usable "model" photo (already spent on Result 02).
        nails-colour-detail-clean.webp and rituals-hands-flowers-clean.webp
        remain excluded — off-palette vs. the ivory/nude/champagne look. -->
   <section class="results" id="results">
@@ -122,14 +126,14 @@
 
       <figure class="result result--small">
         <div class="result__frame">
-          <img src="assets/clean/spa-ritual-atmosphere-clean.webp" alt="Promienna, zdrowa skóra" loading="lazy" style="object-position: 90% 55%;" />
+          <img src="assets/clean/spa-ritual-atmosphere-clean.webp" alt="Promienna, zdrowa skóra — pełny portret" loading="lazy" style="object-position: 22% 15%;" />
         </div>
         <figcaption><span class="result__num">03</span><span class="result__name">Radiant Skin</span></figcaption>
       </figure>
 
       <figure class="result result--small">
-        <div class="result__frame">
-          <img src="assets/clean/hero-hand-clean.webp" alt="Delikatny detal beauty — nude finish" loading="lazy" style="object-position: 50% 22%;" />
+        <div class="result__frame result__frame--zoom">
+          <img src="assets/clean/spa-ritual-atmosphere-clean.webp" alt="Delikatny detal — dłoń przy policzku" loading="lazy" style="object-position: 27% 32%;" />
         </div>
         <figcaption><span class="result__num">04</span><span class="result__name">Beauty Detail</span></figcaption>
       </figure>
