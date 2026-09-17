@@ -19,11 +19,11 @@
       <span class="nav__logo-line2">Beauty Atelier</span>
     </a>
     <ul class="nav__links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#results">Results</a></li>
+      <li><a href="#services">Nails</a></li>
+      <li><a href="#services">Skin</a></li>
+      <li><a href="#services">Make-up</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#pricing">Prices</a></li>
-      <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="#booking" class="nav__cta">Book a Visit</a>
     <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false">
@@ -34,11 +34,11 @@
   <!-- ===== MOBILE FULLSCREEN MENU ===== -->
   <div class="menu" id="menu">
     <ul class="menu__links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#results">Results</a></li>
+      <li><a href="#services">Nails</a></li>
+      <li><a href="#services">Skin</a></li>
+      <li><a href="#services">Make-up</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#pricing">Prices</a></li>
-      <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="#booking" class="menu__cta">Book a Visit →</a>
     <div class="menu__meta">
@@ -48,36 +48,50 @@
   </div>
 
   <!-- ===== HERO ===== -->
+  <!-- TODO: replace with hero-campaign.webp — no dedicated editorial beauty
+       campaign portrait exists yet in assets/clean (see asset inventory in
+       project notes). spa-ritual-atmosphere-clean.webp is the closest clean
+       "model, not process" shot available and is used as a temporary
+       fallback; it also appears — with very different crops — in
+       Services/Rituals and two Results tiles, since it is effectively the
+       only usable beauty portrait in the library besides the make-up
+       process shot. -->
   <section class="hero" id="hero">
-    <div class="hero__copy">
+    <div class="hero__bg">
+      <img src="assets/clean/spa-ritual-atmosphere-clean.webp" alt="Beata Beauty Atelier — kampania beauty" class="hero__img" style="object-position: 42% 22%;" />
+      <div class="hero__scrim" aria-hidden="true"></div>
+    </div>
+
+    <div class="hero__meta-top" aria-hidden="true">
+      Beauty<br>is more than<br>a look
+      <span class="hairline"></span>
+    </div>
+
+    <div class="hero__content">
       <p class="hero__eyebrow">Beata Beauty Atelier</p>
       <h1 class="hero__title" data-reveal>
         <span>Beauty is</span>
         <span class="hero__title-em">Personal.</span>
       </h1>
-      <p class="hero__desc">Studio urody stworzone z myślą o Tobie. Nail art, terapia skóry i makijaż — precyzja, indywidualne podejście i ponad 10 lat doświadczenia.</p>
-      <a href="#booking" class="cta-arrow">Umów wizytę <span class="cta-arrow__glyph">↗</span></a>
+      <p class="hero__desc">Studio urody stworzone z myślą o Tobie.</p>
+      <a href="#booking" class="cta-arrow cta-arrow--light">Umów wizytę <span class="cta-arrow__glyph">→</span></a>
     </div>
 
-    <!-- TODO: replace with hero-campaign.webp — no dedicated editorial
-         beauty campaign portrait exists yet in assets/clean. Of the two
-         "model" shots available, makeup-application-clean.webp always
-         shows a visible brush + technician's hand (reads as a treatment
-         being performed, which Hero must avoid), so spa-ritual-atmosphere-
-         clean.webp is the better temporary fallback: no tools, a calm
-         portrait. It also serves Services/Rituals below with a distinct,
-         much tighter crop so the two don't read as the same picture. -->
-    <div class="hero__media">
-      <div class="hero__frame">
-        <img src="assets/clean/spa-ritual-atmosphere-clean.webp" alt="Beata Beauty Atelier — kampania beauty" class="hero__img" style="object-position: 38% 18%;" />
-      </div>
-      <span class="hero__tag">Beauty Atelier</span>
+    <div class="hero__foot" aria-hidden="true">
+      <span>01</span><span class="hero__foot-sep"></span><span>02</span><span>03</span>
     </div>
 
-    <div class="hero__scroll" aria-hidden="true">
-      <span>Scroll</span>
-      <div class="hero__scroll-line"></div>
+    <div class="hero__corner-meta" aria-hidden="true">
+      Piękno<br>w Twoim<br>stylu
     </div>
+  </section>
+
+  <!-- ===== MANIFESTO — quiet editorial transition, not a gallery ===== -->
+  <section class="manifesto">
+    <p class="manifesto__meta">01 / Our Philosophy</p>
+    <h2 class="manifesto__statement">Piękno nie jest<br>jednym efektem.</h2>
+    <p class="manifesto__support">To suma detali.<br>Skóry. Koloru.<br>Dotyku. Precyzji.</p>
+    <p class="manifesto__line">Nails / Skin / Make-up / Rituals</p>
   </section>
 
   <!-- ===== RESULTS / PORTFOLIO ===== -->
@@ -138,6 +152,20 @@
         <figcaption><span class="result__num">04</span><span class="result__name">Beauty Detail</span></figcaption>
       </figure>
     </div>
+  </section>
+
+  <!-- ===== BRAND MOMENT — memorability pause, not a service card ===== -->
+  <!-- Reuses makeup-application-clean.webp with its widest, least-zoomed
+       crop (full scene: mirror, flowers, candles) so it reads as an
+       atmosphere/aspiration shot rather than a repeat of Result 02's tight
+       face crop or Services/Make-up's process crop. -->
+  <section class="brand-moment">
+    <div class="brand-moment__media">
+      <img src="assets/clean/makeup-application-clean.webp" alt="Naturalne piękno w świetle studia" loading="lazy" style="object-position: 55% 25%;" />
+    </div>
+    <div class="brand-moment__meta-left" aria-hidden="true">Nails<br>Skin<br>Make-up<br>You</div>
+    <h2 class="brand-moment__statement">Natural<br>beauty.<br>Real you.</h2>
+    <div class="brand-moment__meta-right" aria-hidden="true">Piękno<br>w Twoim<br>rytmie.</div>
   </section>
 
   <!-- ===== SERVICES ===== -->
