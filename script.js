@@ -29,9 +29,6 @@ function slotsForDay(dow) {
   if (dow === 6) return ['9:00','10:00','11:00','12:00','13:00','14:00'];
   return ['9:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00'];
 }
-function freeCount(dateKey, dow) {
-  return slotsForDay(dow).filter(t => !isBooked(dateKey, t)).length;
-}
 
 let selDate = null;
 let selTime = null;
@@ -53,37 +50,56 @@ function initBooking() {
     if (d.getDay() !== 0) dates.push(d);
   }
 
-  const ALL_TIMES = ['9:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00'];
+  let viewedKey = toKey(dates[0]);
 
-  function renderGrid() {
-    let html = '<div class="bcal__corner"></div>';
+  function renderDays() {
+    let html = '<div class="bday-row" role="tablist" aria-label="Wybierz dzień">';
     dates.forEach(d => {
-      html += `<div class="bcal__col-head">
-        <span class="bcal__dow">${DAY_PL[d.getDay()]}</span>
-        <span class="bcal__day">${d.getDate()}</span>
-        <span class="bcal__mon">${MONTH_PL[d.getMonth()]}</span>
-      </div>`;
+      const key = toKey(d);
+      const isActive = key === viewedKey;
+      html += `<button type="button" class="bday${isActive ? ' active' : ''}" data-key="${key}" role="tab" aria-selected="${isActive}">
+        <span class="bday__dow">${DAY_PL[d.getDay()]}</span>
+        <span class="bday__num">${d.getDate()}</span>
+        <span class="bday__mon">${MONTH_PL[d.getMonth()]}</span>
+      </button>`;
     });
-    ALL_TIMES.forEach(slot => {
-      html += `<div class="bcal__time">${slot}</div>`;
-      dates.forEach(d => {
-        const key = toKey(d);
-        if (!slotsForDay(d.getDay()).includes(slot)) {
-          html += `<div class="bcal__cell bcal__cell--off"></div>`;
-        } else if (isBooked(key, slot)) {
-          html += `<div class="bcal__cell bcal__cell--booked"></div>`;
-        } else {
-          html += `<button class="bcal__cell bcal__cell--free" data-key="${key}" data-time="${slot}" type="button"></button>`;
-        }
-      });
-    });
+    html += '</div><div class="btime-row" id="btimeRow"></div>';
     calEl.innerHTML = html;
 
-    calEl.querySelectorAll('.bcal__cell--free').forEach(btn => {
+    calEl.querySelectorAll('.bday').forEach(btn => {
       btn.addEventListener('click', () => {
-        calEl.querySelectorAll('.bcal__cell--free').forEach(b => b.classList.remove('active'));
+        viewedKey = btn.dataset.key;
+        calEl.querySelectorAll('.bday').forEach(b => {
+          b.classList.toggle('active', b === btn);
+          b.setAttribute('aria-selected', String(b === btn));
+        });
+        renderTimes();
+      });
+    });
+
+    renderTimes();
+  }
+
+  function renderTimes() {
+    const timeRow = document.getElementById('btimeRow');
+    const d = dates.find(dd => toKey(dd) === viewedKey);
+    const slots = slotsForDay(d.getDay());
+    if (!slots.length) {
+      timeRow.innerHTML = '<p class="btime-empty">Ten dzień jest niedostępny do rezerwacji.</p>';
+      return;
+    }
+    timeRow.innerHTML = slots.map(slot => {
+      const booked = isBooked(viewedKey, slot);
+      const isSel = selDate === viewedKey && selTime === slot;
+      if (booked) return `<span class="btime btime--booked">${slot}</span>`;
+      return `<button type="button" class="btime btime--free${isSel ? ' active' : ''}" data-time="${slot}">${slot}</button>`;
+    }).join('');
+
+    timeRow.querySelectorAll('.btime--free').forEach(btn => {
+      btn.addEventListener('click', () => {
+        timeRow.querySelectorAll('.btime--free').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        selDate = btn.dataset.key;
+        selDate = viewedKey;
         selTime = btn.dataset.time;
         updateSelected();
       });
@@ -100,14 +116,14 @@ function initBooking() {
     }
   }
 
-  renderGrid();
+  renderDays();
 
   form.addEventListener('submit', e => {
     e.preventDefault();
     const name  = document.getElementById('bName').value.trim();
     const phone = document.getElementById('bPhone').value.trim();
     if (!selDate || !selTime) {
-      errorEl.textContent = 'Kliknij wybrany termin w kalendarzu.';
+      errorEl.textContent = 'Wybierz wolny termin powyżej.';
       return;
     }
     if (!name || !phone) {
@@ -117,56 +133,158 @@ function initBooking() {
     errorEl.textContent = '';
     saveBooking(selDate, selTime);
 
-    // Zamień wolną komórkę na zarezerwowaną
-    const cell = calEl.querySelector(`[data-key="${selDate}"][data-time="${selTime}"]`);
-    if (cell) {
-      const div = document.createElement('div');
-      div.className = 'bcal__cell bcal__cell--booked';
-      cell.replaceWith(div);
-    }
-
     const d = new Date(selDate + 'T12:00:00');
     confirmMsg.textContent = `Wizyta ${DAY_PL[d.getDay()]} ${d.getDate()} ${MONTH_PL[d.getMonth()]} o ${selTime} — do zobaczenia! Potwierdzenie SMS zostanie wysłane wkrótce.`;
     confirmEl.classList.add('visible');
     form.reset();
     selDate = null; selTime = null;
     selectedEl.classList.remove('visible');
+    renderTimes();
     setTimeout(() => confirmEl.classList.remove('visible'), 8000);
   });
 }
 
 initBooking();
 
-// Nav scroll shadow
+// ============================================================
+// NAV — sticky shadow, mobile fullscreen menu
+// ============================================================
 const nav = document.getElementById('nav');
-const topbar = document.querySelector('.topbar');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 10);
-});
-
-// Mobile burger toggle
 const burger = document.getElementById('burger');
-const drawer = document.getElementById('drawer');
+const menu = document.getElementById('menu');
+
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 8);
+}, { passive: true });
+
+const stickyCtaEl = document.querySelector('.sticky-cta');
 burger.addEventListener('click', () => {
-  drawer.classList.toggle('open');
+  const isOpen = menu.classList.toggle('open');
+  burger.setAttribute('aria-expanded', String(isOpen));
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+  if (stickyCtaEl) stickyCtaEl.classList.toggle('menu-open', isOpen);
 });
-drawer.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => drawer.classList.remove('open'));
+menu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    menu.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    if (stickyCtaEl) stickyCtaEl.classList.remove('menu-open');
+  });
 });
 
-// Close drawer on outside click
-document.addEventListener('click', (e) => {
-  if (!nav.contains(e.target) && !drawer.contains(e.target)) {
-    drawer.classList.remove('open');
+// ============================================================
+// PRICING — accordion
+// ============================================================
+function setAccBody(item, open) {
+  const body = item.querySelector('.acc-item__body');
+  const head = item.querySelector('.acc-item__head');
+  item.classList.toggle('active', open);
+  head.setAttribute('aria-expanded', String(open));
+  body.style.maxHeight = open ? body.scrollHeight + 'px' : '0px';
+}
+
+const accItems = document.querySelectorAll('.acc-item');
+accItems.forEach(item => {
+  const head = item.querySelector('.acc-item__head');
+  head.addEventListener('click', () => {
+    const isActive = item.classList.contains('active');
+    accItems.forEach(i => setAccBody(i, false));
+    if (!isActive) setAccBody(item, true);
+  });
+});
+// Initialize the default-open item (marked with .active in markup) after layout.
+window.addEventListener('load', () => {
+  accItems.forEach(item => {
+    if (item.classList.contains('active')) setAccBody(item, true);
+  });
+});
+// Recalculate open panel height on resize (text reflow changes scrollHeight).
+window.addEventListener('resize', () => {
+  accItems.forEach(item => {
+    if (item.classList.contains('active')) {
+      item.querySelector('.acc-item__body').style.maxHeight = 'none';
+      const h = item.querySelector('.acc-item__body').scrollHeight;
+      item.querySelector('.acc-item__body').style.maxHeight = h + 'px';
+    }
+  });
+});
+
+// ============================================================
+// SCROLL REVEAL
+// ============================================================
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealTargets = document.querySelectorAll('.result, .service-row, .stat, .acc-item');
+
+if ('IntersectionObserver' in window && !reduceMotion) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
+
+  revealTargets.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    // Elements already in (or above) the viewport on load don't need to animate in.
+    if (rect.top > window.innerHeight * 0.92) {
+      el.classList.add('pre-reveal');
+      io.observe(el);
+    }
+  });
+}
+
+// ============================================================
+// TESTIMONIAL CAROUSEL
+// ============================================================
+(function initProofCarousel() {
+  const slides = document.querySelectorAll('.proof__slide');
+  const counter = document.getElementById('proofCurrent');
+  const prevBtn = document.getElementById('proofPrev');
+  const nextBtn = document.getElementById('proofNext');
+  if (!slides.length) return;
+  let index = 0;
+
+  function show(i) {
+    index = (i + slides.length) % slides.length;
+    slides.forEach((s, n) => s.classList.toggle('active', n === index));
+    if (counter) counter.textContent = String(index + 1).padStart(2, '0');
   }
-});
 
-// Contact form
-const form = document.getElementById('contactForm');
-const note = document.getElementById('formNote');
-form.addEventListener('submit', (e) => {
+  prevBtn?.addEventListener('click', () => show(index - 1));
+  nextBtn?.addEventListener('click', () => show(index + 1));
+
+  if (!reduceMotion) {
+    setInterval(() => show(index + 1), 7000);
+  }
+})();
+
+// ============================================================
+// STICKY MOBILE CTA — hidden while hero (with its own CTA) is in view
+// ============================================================
+const stickyCta = document.querySelector('.sticky-cta');
+const heroSection = document.getElementById('hero');
+if (stickyCta && heroSection && 'IntersectionObserver' in window) {
+  const heroIo = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      stickyCta.classList.toggle('visible', !entry.isIntersecting);
+    });
+  }, { threshold: 0 });
+  heroIo.observe(heroSection);
+} else if (stickyCta) {
+  stickyCta.classList.add('visible');
+}
+
+// ============================================================
+// CONTACT FORM
+// ============================================================
+const contactForm = document.getElementById('contactForm');
+const formNote = document.getElementById('formNote');
+contactForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  note.textContent = 'Dziękuję! Odezwę się wkrótce. ✦';
-  form.reset();
-  setTimeout(() => { note.textContent = ''; }, 5000);
+  formNote.textContent = 'Dziękuję! Odezwę się wkrótce. ✦';
+  contactForm.reset();
+  setTimeout(() => { formNote.textContent = ''; }, 5000);
 });
