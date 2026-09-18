@@ -113,23 +113,17 @@ strong { font-weight: 600; }
   top: 0; left: 0; right: 0;
   z-index: 300;
   height: var(--nav-h);
-  background: transparent;
+  background: rgba(244,239,231,0.7);
+  backdrop-filter: blur(8px);
   border-bottom: 1px solid transparent;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-inline: var(--pad-c);
-  color: var(--white);
-  /* Desktop only: the Hero artwork already has its own printed logo/nav/
-     CTA, so this real nav stays invisible-but-present (see hero__hotspot)
-     until scrolled past Hero, avoiding a visibly duplicated bar. */
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--tr), background var(--tr), border-color var(--tr), box-shadow var(--tr), color var(--tr);
+  color: var(--black);
+  transition: background var(--tr), border-color var(--tr), box-shadow var(--tr), color var(--tr);
 }
 .nav.scrolled {
-  opacity: 1;
-  pointer-events: auto;
   background: rgba(244,239,231,0.92);
   backdrop-filter: blur(10px);
   border-bottom-color: var(--line);
@@ -251,33 +245,54 @@ strong { font-weight: 600; }
 }
 
 /* ============================================================
-   HERO — the campaign artwork (assets/campaign/hero-campaign.webp)
-   already contains logo, headline, nav and CTA baked into the
-   photograph. Desktop shows it uncropped at its native aspect ratio
-   (no object-fit crop, no HTML text duplicated on top); real,
-   invisible hotspots make its printed nav/CTA clickable. Mobile
-   swaps in a tighter face-crop plus real HTML copy (see below).
+   HERO — clean photo (assets/campaign/hero-clean.webp), no baked-in
+   typography. Real HTML headline/CTA sit in the photo's own left
+   negative space, recreating the reference artwork's composition
+   with genuine, accessible markup instead of pixels.
    ============================================================ */
-.hero { position: relative; background: var(--ivory); }
+.hero { position: relative; background: var(--ivory); height: 100svh; min-height: 640px; overflow: hidden; }
 
-.hero__artwork {
+.hero__artwork { position: absolute; inset: 0; line-height: 0; }
+.hero__img { width: 100%; height: 100%; object-fit: cover; object-position: 78% 35%; display: block; }
+
+.hero__copy {
   position: relative;
-  width: 100%;
-  /* Cap width so the (uncropped) 3:2 artwork fits within ~100svh instead
-     of overflowing taller than the viewport on wide screens; on narrower
-     screens it simply falls back to full width. */
-  max-width: calc(100svh * 1536 / 1024);
-  margin-inline: auto;
-  line-height: 0;
+  z-index: 2;
+  box-sizing: content-box;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 26ch;
+  max-width: calc(100% - 2 * var(--pad-c));
+  padding-left: var(--pad-c);
+  color: var(--black);
 }
-.hero__img { width: 100%; height: auto; display: block; }
-
-.hero__hotspot { position: absolute; cursor: pointer; }
-.hero__hotspot--logo { top: 2%; left: 2%; width: 18%; height: 10%; }
-.hero__hotspot--nav { top: 3%; right: 2%; width: 26%; height: 9%; }
-.hero__hotspot--cta { left: 4%; bottom: 17%; width: 19%; height: 6%; }
-
-.hero__mobile-copy { display: none; }
+.hero__copy .hero__eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+.hero__copy .hero__title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2.8rem, 5.5vw, 6.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.025em;
+  color: var(--black);
+  margin-bottom: 1.75rem;
+}
+.hero__copy .hero__title-em { font-style: normal; color: inherit; }
+.hero__copy .hero__desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 26ch;
+  margin-bottom: 2.25rem;
+}
 
 /* Elegant arrow CTA (used on mobile hero + elsewhere) */
 .cta-arrow {
@@ -423,23 +438,85 @@ section#hero { padding: 0; scroll-margin-top: 0; }
    shown uncropped on desktop (own baked typography, no HTML overlay);
    mobile crops tighter to the model portrait.
    ============================================================ */
-.brand-moment { padding: 0; background: var(--ivory); line-height: 0; }
-.brand-moment__img { width: 100%; height: auto; display: block; }
+.brand-moment { position: relative; padding: 0; background: var(--ivory); line-height: normal; height: 82svh; min-height: 480px; max-height: 760px; overflow: hidden; }
+.brand-moment__img { width: 100%; height: 100%; object-fit: cover; object-position: 68% 30%; display: block; }
+.brand-moment__copy {
+  position: absolute;
+  top: 50%;
+  left: var(--pad-c);
+  transform: translateY(-50%);
+  width: 22ch;
+  max-width: calc(100% - 2 * var(--pad-c));
+  color: var(--black);
+}
+.brand-moment__title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 4.5vw, 4.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+.brand-moment__list {
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(23,19,16,0.45);
+  white-space: nowrap;
+}
 
 /* ============================================================
    SERVICES
    ============================================================ */
 .services { background: var(--ivory); }
 
-/* Skin feature artwork — full-bleed, own baked typography, no HTML
-   duplication. Pulled slightly wider than the section's own content
-   padding for a "campaign page inserted into the site" feel. */
+/* Skin feature — clean photo, full-bleed, with real HTML headline/copy
+   placed over its own calm left area. Pulled slightly wider than the
+   section's own content padding for a "campaign page inserted into the
+   site" feel. */
 .skin-feature {
+  position: relative;
   margin-inline: calc(-1 * var(--pad-c));
   margin-block: clamp(2.5rem, 5vw, 4rem);
-  line-height: 0;
+  line-height: normal;
+  height: 82svh;
+  min-height: 480px;
+  max-height: 760px;
+  overflow: hidden;
 }
-.skin-feature img { width: 100%; height: auto; display: block; }
+.skin-feature__img { width: 100%; height: 100%; object-fit: cover; object-position: 72% 30%; display: block; }
+.skin-feature__copy {
+  position: absolute;
+  top: 40%;
+  left: var(--pad-c);
+  transform: translateY(-50%);
+  width: 26ch;
+  max-width: calc(100% - 2 * var(--pad-c));
+  color: var(--black);
+}
+.skin-feature__eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+.skin-feature__title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 4vw, 3.75rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+.skin-feature__desc {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 24ch;
+}
 .services__title {
   font-family: var(--font-serif);
   font-weight: 400;
@@ -952,55 +1029,50 @@ section#hero { padding: 0; scroll-margin-top: 0; }
   body { padding-bottom: 3.4rem; }
   .footer__headline { padding-bottom: 0; }
 
-  /* Mobile Hero: swap the uncropped artwork for a tight face-crop and
-     bring back real HTML headline/CTA (Strategy B: crop + re-created
-     copy, per the mobile art-direction rule for baked-text artworks). */
-  .hero__artwork { height: 88svh; min-height: 560px; overflow: hidden; }
-  .hero__img { height: 100%; object-fit: cover; object-position: 68% 20%; }
-  .hero__hotspot { display: none; }
-  .hero__mobile-copy {
-    display: block;
-    position: absolute;
-    left: var(--pad-c);
-    right: var(--pad-c);
-    bottom: clamp(2rem, 8vw, 3rem);
-    z-index: 2;
-    color: var(--white);
-    text-shadow: 0 2px 16px rgba(23,19,16,0.35);
+  /* Mobile Hero: deliberately re-composed, not just a shrunk desktop
+     layout — crop weighted toward the photo's own light upper-left
+     negative space (protecting face/hand) and stack real HTML copy
+     into that same light area, top-aligned. No dark overlay across
+     the whole photograph; text stays dark since it sits on the
+     photo's own light wall/shadow area. */
+  .hero { height: 92svh; min-height: 560px; }
+  .hero__img { object-position: 32% 22%; }
+  .hero__copy {
+    justify-content: flex-start;
+    padding-top: clamp(6.5rem, 22vw, 8.5rem);
+    max-width: 22ch;
+    color: var(--black);
   }
-  .hero__mobile-copy::before {
-    content: '';
-    position: absolute;
-    left: calc(-1 * var(--pad-c)); right: calc(-1 * var(--pad-c)); bottom: -2rem; top: -3rem;
-    z-index: -1;
-    background: linear-gradient(0deg, rgba(23,19,16,0.55) 20%, rgba(23,19,16,0) 100%);
-  }
-  .hero__mobile-copy .hero__eyebrow { font-size: 0.64rem; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.9; margin-bottom: 1.1rem; }
-  /* Same editorial serif, same normal style, same weight and color on
-     both lines — hierarchy comes from scale/line-break only, matching
-     the campaign artworks' own typography, not a mixed-style gimmick. */
-  .hero__mobile-copy .hero__title {
-    font-family: var(--font-serif);
-    font-style: normal;
-    font-weight: 300;
-    font-size: clamp(3.125rem, 14vw, 4.125rem);
-    line-height: 0.9;
-    letter-spacing: -0.025em;
-    color: var(--white);
+  .hero__copy .hero__eyebrow { font-size: 0.64rem; letter-spacing: 0.28em; margin-bottom: 1rem; }
+  .hero__copy .hero__title {
+    font-size: clamp(2.6rem, 11vw, 3.4rem);
     margin-bottom: 1.1rem;
   }
-  .hero__mobile-copy .hero__title-em { font-style: normal; color: inherit; }
-  .hero__mobile-copy .hero__desc { font-size: 0.95rem; opacity: 0.92; margin-bottom: 1.5rem; max-width: 26ch; }
-  .hero__mobile-copy .cta-arrow { color: var(--white); border-color: var(--white); }
+  .hero__copy .hero__desc { font-size: 0.92rem; max-width: 22ch; margin-bottom: 1.5rem; }
 
-  /* Brand Moment: crop tighter to the model portrait on mobile so the
-     baked headline area (which reads fine wide on desktop) doesn't get
-     squeezed illegible-thin. */
-  .brand-moment { line-height: normal; }
-  .brand-moment__img { height: 78svh; min-height: 460px; object-fit: cover; object-position: 64% 12%; }
+  /* Brand Moment: deliberately re-composed for mobile — crop weighted
+     toward the model's face/hand, copy stacked above in the photo's
+     own light area instead of the side-by-side desktop layout. */
+  .brand-moment { height: auto; min-height: 0; max-height: none; display: flex; flex-direction: column; }
+  .brand-moment__img { height: 58svh; min-height: 380px; object-position: 62% 20%; order: 2; }
+  .brand-moment__copy {
+    position: static;
+    transform: none;
+    order: 1;
+    max-width: none;
+    padding: clamp(2.5rem, 8vw, 3.5rem) var(--pad-c) clamp(1.75rem, 5vw, 2.5rem);
+  }
+  .brand-moment__title { font-size: clamp(2.2rem, 9vw, 2.8rem); }
 
-  .skin-feature { margin-inline: calc(-1 * var(--pad)); line-height: normal; }
-  .skin-feature img { height: 64svh; min-height: 420px; object-fit: cover; object-position: 70% 25%; }
+  .skin-feature { margin-inline: calc(-1 * var(--pad)); }
+  .skin-feature__img { height: 64svh; min-height: 420px; object-fit: cover; object-position: 78% 25%; }
+  .skin-feature__copy {
+    position: static;
+    transform: none;
+    max-width: none;
+    padding: clamp(2rem, 7vw, 2.75rem) var(--pad-c);
+    color: var(--black);
+  }
 
   .results__head { flex-direction: column; align-items: flex-start; }
 }
