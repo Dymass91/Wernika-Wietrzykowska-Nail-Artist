@@ -134,7 +134,7 @@ function initBooking() {
     saveBooking(selDate, selTime);
 
     const d = new Date(selDate + 'T12:00:00');
-    confirmMsg.textContent = `Wizyta ${DAY_PL[d.getDay()]} ${d.getDate()} ${MONTH_PL[d.getMonth()]} o ${selTime} — do zobaczenia! Potwierdzenie SMS zostanie wysłane wkrótce.`;
+    confirmMsg.textContent = `Wizyta ${DAY_PL[d.getDay()]} ${d.getDate()} ${MONTH_PL[d.getMonth()]} o ${selTime} — do zobaczenia!`;
     confirmEl.classList.add('visible');
     form.reset();
     selDate = null; selTime = null;
