@@ -127,7 +127,7 @@
         <figcaption><span class="result__num">02</span><span class="result__name">Editorial Make-up</span></figcaption>
       </figure>
 
-      <figure class="result result--small">
+      <figure class="result result--medium">
         <div class="result__frame">
           <img src="assets/clean/spa-ritual-atmosphere-clean.webp" alt="Promienna, zdrowa skóra — pełny portret" loading="lazy" style="object-position: 22% 15%;" />
         </div>
@@ -378,13 +378,13 @@
       </div>
 
       <div class="booking__col">
-        <span class="booking__step-label">02 — 03 · Termin</span>
+        <span class="booking__step-label">02 — Termin</span>
         <div id="bookingCalendar" class="booking__calendar"></div>
         <div class="booking__selected" id="bookingSelected"></div>
       </div>
 
       <div class="booking__col">
-        <span class="booking__step-label">04 — Dane kontaktowe</span>
+        <span class="booking__step-label">03 — Dane kontaktowe</span>
         <form id="bookingForm" class="booking__form" novalidate>
           <div class="booking__form-row">
             <div class="form-group">
@@ -410,57 +410,41 @@
   </section>
 
   <!-- ===== CONTACT ===== -->
+  <!-- Booking is the primary conversion action; a second heavy form here
+       would compete with it. This is now an elegant information section
+       with a single mailto link, not a duplicate form. -->
   <section class="contact" id="contact">
-    <div class="contact__grid">
-      <div class="contact__info">
-        <p class="section__label">Contact</p>
-        <h2 class="contact__title">Write to me.</h2>
+    <p class="section__label">Contact</p>
+    <h2 class="contact__title">Porozmawiajmy<br>o Twojej wizycie.</h2>
 
-        <div class="contact__item">
-          <strong>Phone</strong>
-          <a href="tel:+48000000000">+48 000 000 000</a>
-        </div>
-        <div class="contact__item">
-          <strong>E-mail</strong>
-          <a href="mailto:hello@beata-atelier.pl">hello@beata-atelier.pl</a>
-        </div>
-        <div class="contact__item">
-          <strong>Instagram</strong>
-          <a href="https://instagram.com/" target="_blank" rel="noopener">@beata.beautyatelier</a>
-        </div>
-        <div class="contact__item">
-          <strong>Studio</strong>
-          <span>ul. Kwiatowa 12, Warszawa</span>
-        </div>
-        <div class="contact__hours">
-          <strong>Hours</strong>
-          <div class="hours-grid">
-            <span>Poniedziałek – Piątek</span><span>9:00 – 19:00</span>
-            <span>Sobota</span><span>9:00 – 15:00</span>
-            <span>Niedziela</span><span>Zamknięte</span>
-          </div>
+    <div class="contact__grid">
+      <div class="contact__item">
+        <strong>Phone</strong>
+        <a href="tel:+48000000000">+48 000 000 000</a>
+      </div>
+      <div class="contact__item">
+        <strong>E-mail</strong>
+        <a href="mailto:hello@beata-atelier.pl">hello@beata-atelier.pl</a>
+      </div>
+      <div class="contact__item">
+        <strong>Instagram</strong>
+        <a href="https://instagram.com/" target="_blank" rel="noopener">@beata.beautyatelier</a>
+      </div>
+      <div class="contact__item">
+        <strong>Studio</strong>
+        <span>ul. Kwiatowa 12, Warszawa</span>
+      </div>
+      <div class="contact__item contact__item--hours">
+        <strong>Hours</strong>
+        <div class="hours-grid">
+          <span>Poniedziałek – Piątek</span><span>9:00 – 19:00</span>
+          <span>Sobota</span><span>9:00 – 15:00</span>
+          <span>Niedziela</span><span>Zamknięte</span>
         </div>
       </div>
-
-      <form class="contact__form" id="contactForm">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Imię i nazwisko *</label>
-            <input type="text" id="name" name="name" placeholder="Anna Kowalska" required />
-          </div>
-          <div class="form-group">
-            <label for="phone">Telefon *</label>
-            <input type="tel" id="phone" name="phone" placeholder="+48 000 000 000" required />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="message">Wiadomość</label>
-          <textarea id="message" name="message" rows="4" placeholder="Napisz coś..."></textarea>
-        </div>
-        <button type="submit" class="btn btn--dark btn--full">Wyślij zapytanie</button>
-        <p class="form__note" id="formNote"></p>
-      </form>
     </div>
+
+    <a href="mailto:hello@beata-atelier.pl" class="cta-arrow">Napisz do nas <span class="cta-arrow__glyph">→</span></a>
   </section>
 
   <!-- ===== FOOTER ===== -->

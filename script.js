@@ -277,14 +277,3 @@ if (stickyCta && heroSection && 'IntersectionObserver' in window) {
   stickyCta.classList.add('visible');
 }
 
-// ============================================================
-// CONTACT FORM
-// ============================================================
-const contactForm = document.getElementById('contactForm');
-const formNote = document.getElementById('formNote');
-contactForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  formNote.textContent = 'Dziękuję! Odezwę się wkrótce. ✦';
-  contactForm.reset();
-  setTimeout(() => { formNote.textContent = ''; }, 5000);
-});
