@@ -15,7 +15,7 @@
   --text-muted: #665B52; /* muted-ink — secondary text */
   --line:       #D8CEC3; /* hairline — borders/separators */
 
-  --font-serif: 'Fraunces', Georgia, serif;
+  --font-serif: 'Bodoni Moda', 'Didot', Georgia, serif;
   --font-sans:  'Inter', system-ui, sans-serif;
 
   --content-w: 1360px;
@@ -59,9 +59,10 @@ strong { font-weight: 600; }
    UTILITIES
    ============================================================ */
 .section__label {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 500;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.32em;
+  line-height: 1.5;
   text-transform: uppercase;
   color: var(--champagne);
   margin-bottom: 1rem;
@@ -281,7 +282,7 @@ strong { font-weight: 600; }
   font-weight: 400;
   font-size: clamp(2.8rem, 5.5vw, 6.5rem);
   line-height: 0.9;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.035em;
   color: var(--black);
   margin-bottom: 1.75rem;
 }
@@ -338,8 +339,8 @@ section#hero { padding: 0; scroll-margin-top: 0; }
   font-family: var(--font-serif);
   font-weight: 400;
   font-size: clamp(2.6rem, 5vw, 4.6rem);
-  line-height: 0.96;
-  letter-spacing: -0.015em;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
   max-width: 14ch;
 }
 .manifesto__support {
@@ -376,7 +377,8 @@ section#hero { padding: 0; scroll-margin-top: 0; }
   font-family: var(--font-serif);
   font-weight: 400;
   font-size: clamp(2.4rem, 4vw, 4rem);
-  line-height: 1.05;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
 }
 .results__grid {
   display: grid;
@@ -410,11 +412,11 @@ section#hero { padding: 0; scroll-margin-top: 0; }
 .results__grid--four .result--medium .result__frame { aspect-ratio: 4/5; }
 .results__grid--four .result--small .result__frame { aspect-ratio: 4/5; }
 
-/* Result 04: a tighter macro crop of the same source photo used in 03,
-   framed on a different detail (hand-to-cheek gesture) so the two don't
-   read as the same picture repeated. */
-.result__frame--zoom img { transform: scale(2.6); }
-.result:hover .result__frame--zoom img { transform: scale(2.65); }
+/* Result 04: uses the Skin campaign photo (distinct source from Result
+   03's spa-ritual-atmosphere image), macro-cropped on the mask/brush
+   detail so it reads as its own beauty-detail moment. */
+.result__frame--zoom-skin img { transform: scale(2.2); }
+.result:hover .result__frame--zoom-skin img { transform: scale(2.25); }
 
 .result__frame img {
   width: 100%;
@@ -431,7 +433,7 @@ section#hero { padding: 0; scroll-margin-top: 0; }
   margin-top: 1rem;
 }
 .result__num { color: var(--champagne); font-family: var(--font-serif); font-size: 1rem; }
-.result__name { color: var(--text-muted); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.result__name { color: var(--text-muted); font-size: 0.66rem; letter-spacing: 0.26em; text-transform: uppercase; }
 
 /* ============================================================
    BRAND MOMENT — the "Natural Beauty. Real You." campaign artwork,
@@ -453,13 +455,13 @@ section#hero { padding: 0; scroll-margin-top: 0; }
   font-family: var(--font-serif);
   font-weight: 400;
   font-size: clamp(2.4rem, 4.5vw, 4.5rem);
-  line-height: 0.95;
-  letter-spacing: -0.02em;
+  line-height: 0.9;
+  letter-spacing: -0.035em;
   margin-bottom: 1.5rem;
 }
 .brand-moment__list {
-  font-size: 0.72rem;
-  letter-spacing: 0.24em;
+  font-size: 0.66rem;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--text-muted);
   padding-top: 1.25rem;
@@ -497,8 +499,8 @@ section#hero { padding: 0; scroll-margin-top: 0; }
   color: var(--black);
 }
 .skin-feature__eyebrow {
-  font-size: 0.72rem;
-  letter-spacing: 0.32em;
+  font-size: 0.66rem;
+  letter-spacing: 0.34em;
   text-transform: uppercase;
   color: var(--text-muted);
   margin-bottom: 1.25rem;
@@ -507,8 +509,8 @@ section#hero { padding: 0; scroll-margin-top: 0; }
   font-family: var(--font-serif);
   font-weight: 400;
   font-size: clamp(2.2rem, 4vw, 3.75rem);
-  line-height: 0.95;
-  letter-spacing: -0.02em;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
   margin-bottom: 1.5rem;
 }
 .skin-feature__desc {
@@ -516,12 +518,25 @@ section#hero { padding: 0; scroll-margin-top: 0; }
   line-height: 1.6;
   color: var(--text-muted);
   max-width: 24ch;
+  margin-bottom: 1.5rem;
+}
+.skin-feature__foot {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.skin-feature__price {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  color: var(--black);
 }
 .services__title {
   font-family: var(--font-serif);
   font-weight: 400;
   font-size: clamp(2.4rem, 4vw, 4rem);
-  line-height: 1.05;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
   margin-bottom: clamp(2rem, 4vw, 3.25rem);
 }
 
@@ -586,6 +601,8 @@ section#hero { padding: 0; scroll-margin-top: 0; }
   font-family: var(--font-serif);
   font-weight: 400;
   font-size: clamp(1.8rem, 2.6vw, 2.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
   margin-bottom: 0.3rem;
 }
 .service-row__tag {
@@ -615,7 +632,8 @@ section#hero { padding: 0; scroll-margin-top: 0; }
   font-family: var(--font-serif);
   font-weight: 400;
   font-size: clamp(2.4rem, 3.6vw, 3.75rem);
-  line-height: 1;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
   margin-bottom: 1.4rem;
 }
 .about__lead { font-size: 1.02rem; margin-bottom: 1.1rem; max-width: 54ch; }
@@ -627,9 +645,9 @@ section#hero { padding: 0; scroll-margin-top: 0; }
   border-top: 1px solid var(--line);
   padding-top: 1.4rem;
 }
-.stat { display: flex; flex-direction: column; gap: 0.25rem; }
-.stat__num { font-family: var(--font-serif); font-size: clamp(1.5rem, 2vw, 1.9rem); }
-.stat__label { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+.stat { display: flex; flex-direction: column; gap: 0.3rem; }
+.stat__num { font-family: var(--font-serif); font-size: clamp(2rem, 3.2vw, 3rem); line-height: 0.9; letter-spacing: -0.02em; }
+.stat__label { font-size: 0.64rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-muted); }
 .about__demo-note { margin-top: 1.5rem; font-size: 0.72rem; color: var(--text-muted); opacity: 0.7; }
 
 /* ============================================================
@@ -646,6 +664,8 @@ section#hero { padding: 0; scroll-margin-top: 0; }
   font-family: var(--font-serif);
   font-weight: 400;
   font-size: clamp(2.4rem, 4vw, 4rem);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
   margin-bottom: 1rem;
 }
 .proof__rating { letter-spacing: 0.1em; color: var(--champagne); margin-bottom: clamp(2rem, 4vw, 3rem); font-size: 0.9rem; }
@@ -703,7 +723,9 @@ section#hero { padding: 0; scroll-margin-top: 0; }
 .pricing__title {
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: clamp(2.4rem, 4vw, 4rem);
+  font-size: clamp(2rem, 3.2vw, 3.2rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
   margin-bottom: clamp(2rem, 4vw, 3.25rem);
 }
 .accordion { max-width: 760px; border-top: 1px solid var(--line); }
@@ -716,7 +738,7 @@ section#hero { padding: 0; scroll-margin-top: 0; }
   padding-block: 1.25rem;
   text-align: left;
 }
-.acc-item__name { font-family: var(--font-serif); font-size: 1.35rem; }
+.acc-item__name { font-family: var(--font-serif); font-size: 1.4rem; letter-spacing: -0.015em; }
 .acc-item__num { font-size: 0.8rem; color: var(--champagne); }
 .acc-item__body {
   max-height: 0;
@@ -752,8 +774,9 @@ section#hero { padding: 0; scroll-margin-top: 0; }
 .booking__title {
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: clamp(2.4rem, 4vw, 4rem);
-  line-height: 1.02;
+  font-size: clamp(2.6rem, 5vw, 4.75rem);
+  line-height: 0.9;
+  letter-spacing: -0.035em;
   margin-bottom: 0.9rem;
 }
 .booking__lead { color: var(--text-muted); margin-bottom: clamp(2rem, 4vw, 3rem); font-size: 0.96rem; }
@@ -886,8 +909,9 @@ section#hero { padding: 0; scroll-margin-top: 0; }
 .contact__title {
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: clamp(2.4rem, 4vw, 4rem);
-  line-height: 1.02;
+  font-size: clamp(2.2rem, 3.6vw, 3.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
   margin-bottom: clamp(2rem, 5vw, 3.5rem);
   max-width: 16ch;
 }
@@ -904,8 +928,8 @@ section#hero { padding: 0; scroll-margin-top: 0; }
   border-top: 1px solid var(--line);
 }
 .contact__item strong {
-  font-size: 0.68rem;
-  letter-spacing: 0.24em;
+  font-size: 0.64rem;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--champagne);
 }
@@ -928,7 +952,8 @@ section#hero { padding: 0; scroll-margin-top: 0; }
   font-family: var(--font-serif);
   font-weight: 400;
   font-size: clamp(2.75rem, 7vw, 6rem);
-  line-height: 0.95;
+  line-height: 0.88;
+  letter-spacing: -0.04em;
   margin-bottom: 2.5rem;
   transition: color var(--tr);
 }
