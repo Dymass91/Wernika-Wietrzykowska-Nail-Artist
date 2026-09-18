@@ -15,7 +15,14 @@
   --text-muted: #665B52; /* muted-ink — secondary text */
   --line:       #D8CEC3; /* hairline — borders/separators */
 
+  /* Campaign display: expressive high-contrast fashion serif — reserved
+     for very short punchy statements that function as graphic typography
+     (Hero, Brand Moment, Skin Feature, wordmark). */
   --font-serif: 'Bodoni Moda', 'Didot', Georgia, serif;
+  /* Editorial serif: a calmer, sturdier serif for longer headlines that
+     need to be read at a glance, especially on mobile with Polish
+     diacritics — Manifesto, Results, Services, Proof, Pricing, Booking. */
+  --font-serif-editorial: 'DM Serif Display', Georgia, serif;
   --font-sans:  'Inter', system-ui, sans-serif;
 
   --content-w: 1360px;
@@ -222,7 +229,7 @@ strong { font-weight: 600; }
   margin-bottom: 3rem;
 }
 .menu__links a {
-  font-family: var(--font-serif);
+  font-family: var(--font-serif-editorial);
   font-size: clamp(2.2rem, 10vw, 3.5rem);
   font-weight: 400;
 }
@@ -336,11 +343,11 @@ section#hero { padding: 0; scroll-margin-top: 0; }
   margin-bottom: 1.75rem;
 }
 .manifesto__statement {
-  font-family: var(--font-serif);
+  font-family: var(--font-serif-editorial);
   font-weight: 400;
-  font-size: clamp(2.6rem, 5vw, 4.6rem);
-  line-height: 0.92;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.75rem, 5vw, 4.4rem);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
   max-width: 14ch;
 }
 .manifesto__support {
@@ -374,11 +381,11 @@ section#hero { padding: 0; scroll-margin-top: 0; }
   margin-bottom: clamp(2rem, 4vw, 3.25rem);
 }
 .results__title {
-  font-family: var(--font-serif);
+  font-family: var(--font-serif-editorial);
   font-weight: 400;
-  font-size: clamp(2.4rem, 4vw, 4rem);
-  line-height: 0.92;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.6rem, 4vw, 4rem);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
 }
 .results__grid {
   display: grid;
@@ -532,11 +539,11 @@ section#hero { padding: 0; scroll-margin-top: 0; }
   color: var(--black);
 }
 .services__title {
-  font-family: var(--font-serif);
+  font-family: var(--font-serif-editorial);
   font-weight: 400;
   font-size: clamp(1.9rem, 2.6vw, 2.6rem);
-  line-height: 0.95;
-  letter-spacing: -0.02em;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
   margin-bottom: clamp(2rem, 4vw, 3.25rem);
 }
 
@@ -599,11 +606,11 @@ section#hero { padding: 0; scroll-margin-top: 0; }
 }
 .service-row__body { position: relative; z-index: 1; }
 .service-row__title {
-  font-family: var(--font-serif);
+  font-family: var(--font-serif-editorial);
   font-weight: 400;
   font-size: clamp(1.8rem, 2.6vw, 2.6rem);
-  line-height: 0.95;
-  letter-spacing: -0.02em;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
   margin-bottom: 0.3rem;
 }
 .service-row__tag {
@@ -676,11 +683,11 @@ section#hero { padding: 0; scroll-margin-top: 0; }
 }
 .proof .section__label { text-align: center; }
 .proof__title {
-  font-family: var(--font-serif);
+  font-family: var(--font-serif-editorial);
   font-weight: 400;
   font-size: clamp(1.9rem, 2.6vw, 2.6rem);
-  line-height: 0.95;
-  letter-spacing: -0.02em;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
   margin-bottom: 1rem;
 }
 .proof__rating { letter-spacing: 0.1em; color: var(--champagne); margin-bottom: clamp(2rem, 4vw, 3rem); font-size: 0.9rem; }
@@ -706,9 +713,9 @@ section#hero { padding: 0; scroll-margin-top: 0; }
 }
 .proof__slide.active { opacity: 1; transform: translateY(0); pointer-events: auto; }
 .proof__quote {
-  font-family: var(--font-serif);
+  font-family: var(--font-serif-editorial);
   font-size: clamp(1.3rem, 2vw, 1.8rem);
-  line-height: 1.4;
+  line-height: 1.45;
   margin-block: 0.5rem 1.5rem;
 }
 .proof__author { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(243,239,233,0.55); }
@@ -736,11 +743,11 @@ section#hero { padding: 0; scroll-margin-top: 0; }
    ============================================================ */
 .pricing { background: var(--ivory); }
 .pricing__title {
-  font-family: var(--font-serif);
+  font-family: var(--font-serif-editorial);
   font-weight: 400;
   font-size: clamp(2rem, 3.2vw, 3.2rem);
-  line-height: 0.95;
-  letter-spacing: -0.02em;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
   margin-bottom: clamp(2rem, 4vw, 3.25rem);
 }
 .accordion { max-width: 760px; border-top: 1px solid var(--line); }
@@ -753,7 +760,7 @@ section#hero { padding: 0; scroll-margin-top: 0; }
   padding-block: 1.25rem;
   text-align: left;
 }
-.acc-item__name { font-family: var(--font-serif); font-size: 1.4rem; letter-spacing: -0.015em; }
+.acc-item__name { font-family: var(--font-serif-editorial); font-size: 1.4rem; letter-spacing: -0.005em; }
 .acc-item__num { font-size: 0.8rem; color: var(--champagne); }
 .acc-item__body {
   max-height: 0;
@@ -787,11 +794,11 @@ section#hero { padding: 0; scroll-margin-top: 0; }
    ============================================================ */
 .booking { background: var(--white); text-align: center; }
 .booking__title {
-  font-family: var(--font-serif);
+  font-family: var(--font-serif-editorial);
   font-weight: 400;
-  font-size: clamp(2.6rem, 5vw, 4.75rem);
-  line-height: 0.9;
-  letter-spacing: -0.035em;
+  font-size: clamp(2.75rem, 5vw, 4.5rem);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
   margin-bottom: 0.9rem;
 }
 .booking__lead { color: var(--text-muted); margin-bottom: clamp(2rem, 4vw, 3rem); font-size: 0.96rem; }
@@ -922,11 +929,11 @@ section#hero { padding: 0; scroll-margin-top: 0; }
    ============================================================ */
 .contact { background: var(--ivory); }
 .contact__title {
-  font-family: var(--font-serif);
+  font-family: var(--font-serif-editorial);
   font-weight: 400;
   font-size: clamp(2.2rem, 3.6vw, 3.6rem);
-  line-height: 0.95;
-  letter-spacing: -0.025em;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
   margin-bottom: clamp(2rem, 5vw, 3.5rem);
   max-width: 16ch;
 }
