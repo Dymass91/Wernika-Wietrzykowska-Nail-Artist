@@ -158,6 +158,12 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 const stickyCtaEl = document.querySelector('.sticky-cta');
+function closeMenu() {
+  menu.classList.remove('open');
+  burger.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+  if (stickyCtaEl) stickyCtaEl.classList.remove('menu-open');
+}
 burger.addEventListener('click', () => {
   const isOpen = menu.classList.toggle('open');
   burger.setAttribute('aria-expanded', String(isOpen));
@@ -165,12 +171,13 @@ burger.addEventListener('click', () => {
   if (stickyCtaEl) stickyCtaEl.classList.toggle('menu-open', isOpen);
 });
 menu.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
-    menu.classList.remove('open');
-    burger.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-    if (stickyCtaEl) stickyCtaEl.classList.remove('menu-open');
-  });
+  a.addEventListener('click', closeMenu);
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && menu.classList.contains('open')) {
+    closeMenu();
+    burger.focus();
+  }
 });
 
 // ============================================================
