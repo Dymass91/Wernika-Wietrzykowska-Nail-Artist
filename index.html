@@ -48,34 +48,18 @@
   </div>
 
   <!-- ===== HERO ===== -->
-  <!-- Source of truth: assets/original/ChatGPT Image 17 wrz 2026, 17_17_11.png
-       ("BEAUTY IS PERSONAL" campaign artwork), converted to
-       assets/campaign/hero-campaign.webp. It already contains the logo,
-       headline, nav labels, CTA box and micro-copy baked into the
-       photograph, so NO HTML text is duplicated over it on desktop — only
-       real, invisible, accessible link hotspots sit over its own printed
-       nav/CTA regions so they're genuinely clickable. Desktop shows the
-       artwork at its native, uncropped aspect ratio (no destructive
-       object-fit crop). Mobile switches to a tighter face-crop of the same
-       photo (baked text no longer legible/visible at that crop) with real
-       HTML headline + CTA re-created for that viewport only — see
-       .hero__mobile-copy, hidden on desktop to avoid duplicating the
-       artwork's own typography there. -->
+  <!-- Clean production photo (assets/campaign/hero-clean.webp) — no baked-in
+       typography. The old baked artwork (assets/campaign/hero-campaign.webp,
+       source: assets/original/ChatGPT Image 17 wrz 2026, 17_17_11.png) is a
+       visual reference only and is no longer rendered. Headline, meta and
+       CTA are real HTML, positioned into the photo's own left negative
+       space so the composition matches the reference artwork exactly. -->
   <section class="hero" id="hero">
     <div class="hero__artwork">
-      <img src="assets/campaign/hero-campaign.webp" alt="Beata Beauty Atelier — Beauty is Personal. Studio urody stworzone z myślą o Tobie." class="hero__img" />
-
-      <!-- Invisible hotspots over the artwork's own printed nav/CTA —
-           functional navigation without a second, visibly duplicated bar. -->
-      <a href="#hero" class="hero__hotspot hero__hotspot--logo" aria-label="Beata Beauty Atelier — strona główna"></a>
-      <a href="#services" class="hero__hotspot hero__hotspot--nav" aria-label="Zobacz usługi: Nails, Skin, Make-up"></a>
-      <a href="#booking" class="hero__hotspot hero__hotspot--cta" aria-label="Umów wizytę"></a>
+      <img src="assets/campaign/hero-clean.webp" alt="Kobieta dotykająca dłonią podbródka, naturalny makijaż i manicure — Beata Beauty Atelier" class="hero__img" />
     </div>
 
-    <!-- Mobile-only re-creation of the headline/CTA — the artwork is
-         cropped tighter to the face on small screens, so its baked
-         typography is no longer visible there. -->
-    <div class="hero__mobile-copy">
+    <div class="hero__copy">
       <p class="hero__eyebrow">Beata Beauty Atelier</p>
       <h1 class="hero__title">Beauty is<br><span class="hero__title-em">Personal.</span></h1>
       <p class="hero__desc">Studio urody stworzone z myślą o Tobie.</p>
@@ -144,14 +128,17 @@
   </section>
 
   <!-- ===== BRAND MOMENT ===== -->
-  <!-- Source of truth: assets/original/ChatGPT Image 17 wrz 2026, 17_17_57.png
-       ("NATURAL BEAUTY. REAL YOU." artwork), converted to
-       assets/campaign/brand-moment-campaign.webp. Headline, service list
-       and micro-copy are already printed into the photograph, so no HTML
-       text is duplicated over it — the artwork is left to work on its own,
-       shown uncropped on desktop and as a tighter portrait crop on mobile. -->
+  <!-- Clean production photo (assets/campaign/brand-moment-clean.webp) — no
+       baked-in typography. The old baked artwork (brand-moment-campaign.webp,
+       source: assets/original/ChatGPT Image 17 wrz 2026, 17_17_57.png) is a
+       visual reference only. Headline and service list are real HTML,
+       positioned into the photo's left negative space. -->
   <section class="brand-moment">
-    <img src="assets/campaign/brand-moment-campaign.webp" alt="Natural beauty. Real you. — Beata Beauty Atelier, Nails Skin Make-up You" loading="lazy" class="brand-moment__img" />
+    <img src="assets/campaign/brand-moment-clean.webp" alt="Kobieta z dłonią pod policzkiem, otoczona kwiatami i pędzlami do makijażu — Beata Beauty Atelier" loading="lazy" class="brand-moment__img" />
+    <div class="brand-moment__copy">
+      <h2 class="brand-moment__title">Natural<br>beauty.<br>Real you.</h2>
+      <p class="brand-moment__list">Nails · Skin · Make-up · You</p>
+    </div>
   </section>
 
   <!-- ===== SERVICES ===== -->
@@ -173,14 +160,19 @@
       </div>
     </div>
 
-    <!-- Skin feature — the "PIĘKNO W DOBRYCH RĘKACH" campaign artwork
-         (assets/original/ChatGPT Image 17 wrz 2026, 17_18_25.png →
-         assets/campaign/skin-feature-campaign.webp). It already says
-         everything Skin needs to say (headline + "CIAŁO UMYSŁ PIĘKNO TY."
-         micro-copy baked in), so this is the artwork alone, full width —
-         no HTML service-row text duplicated on top of it. -->
+    <!-- Skin feature — clean production photo (skin-feature-clean.webp), no
+         baked-in typography. The old baked artwork (skin-feature-campaign.webp,
+         source: assets/original/ChatGPT Image 17 wrz 2026, 17_18_25.png) is a
+         visual reference only. Headline and supporting copy are real HTML,
+         placed in the photo's calm left area, clear of the client's face and
+         the esthetician's hands/brush. -->
     <figure class="skin-feature">
-      <img src="assets/campaign/skin-feature-campaign.webp" alt="Piękno w dobrych rękach — profesjonalna pielęgnacja twarzy, Beata Beauty Atelier" loading="lazy" />
+      <img class="skin-feature__img" src="assets/campaign/skin-feature-clean.webp" alt="Zabieg pielęgnacyjny na twarz — kosmetyczka nakłada maseczkę pędzlem, klientka zrelaksowana na leżance" loading="lazy" />
+      <figcaption class="skin-feature__copy">
+        <p class="skin-feature__eyebrow">02 / Skin</p>
+        <h3 class="skin-feature__title">Piękno w<br>dobrych rękach.</h3>
+        <p class="skin-feature__desc">Profesjonalna pielęgnacja. Naturalne efekty. Lepsze samopoczucie.</p>
+      </figcaption>
     </figure>
 
     <div class="service-row" data-cat="makeup">
