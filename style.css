@@ -821,49 +821,58 @@ section#hero { padding: 0; scroll-margin-top: 0; }
   border-bottom: 1px solid var(--line);
 }
 
-/* Day pills */
+/* Day strip + time slots share one grid system: equal columns, fixed
+   cell height, constant 1px border — states change color only, never size. */
+.booking__calendar { width: 100%; }
 .bday-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.4rem;
 }
 .bday {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 0.15rem;
-  padding: 0.55rem 0.75rem;
+  height: 4.5rem;
+  padding: 0;
   border: 1px solid var(--line);
-  min-width: 54px;
   transition: border-color var(--tr), background var(--tr);
 }
 .bday:hover { border-color: var(--champagne); }
 .bday.active { background: var(--black); border-color: var(--black); }
-.bday__dow { font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+.bday__dow { font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); line-height: 1; }
 .bday.active .bday__dow { color: rgba(250,248,244,0.6); }
-.bday__num { font-family: var(--font-serif); font-size: 1.1rem; line-height: 1.1; color: var(--black); }
+.bday__num { font-family: var(--font-serif); font-size: 1.1rem; line-height: 1.1; color: var(--black); font-variant-numeric: lining-nums tabular-nums; }
 .bday.active .bday__num { color: var(--white); }
-.bday__mon { font-size: 0.6rem; color: var(--text-muted); }
+.bday__mon { font-size: 0.6rem; color: var(--text-muted); line-height: 1; }
 .bday.active .bday__mon { color: rgba(250,248,244,0.6); }
 
-/* Time pills */
+/* Time slots */
 .btime-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.4rem;
+  margin-top: 0.4rem;
   min-height: 44px;
 }
 .btime {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
   font-size: 0.78rem;
-  padding: 0.5rem 0.85rem;
+  padding: 0;
   border: 1px solid var(--line);
   color: var(--black);
+  font-variant-numeric: tabular-nums;
   transition: border-color var(--tr), background var(--tr), color var(--tr);
 }
 .btime--free:hover { border-color: var(--champagne); }
 .btime--free.active { background: var(--black); border-color: var(--black); color: var(--white); }
 .btime--booked { color: var(--text-muted); border-color: var(--line); opacity: 0.45; text-decoration: line-through; cursor: not-allowed; }
-.btime-empty { font-size: 0.85rem; color: var(--text-muted); }
+.btime-empty { grid-column: 1 / -1; font-size: 0.85rem; color: var(--text-muted); }
 
 .booking__form-row { display: grid; grid-template-columns: 1fr; gap: 1rem; }
 .booking__form { display: flex; flex-direction: column; gap: 1.1rem; }
@@ -1052,6 +1061,7 @@ section#hero { padding: 0; scroll-margin-top: 0; }
   .about__portrait { aspect-ratio: 4/3; max-height: none; }
 
   .booking__panel { grid-template-columns: 1fr; max-width: 480px; }
+  .btime-row { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 
   .contact__grid { grid-template-columns: 1fr; }
 }
